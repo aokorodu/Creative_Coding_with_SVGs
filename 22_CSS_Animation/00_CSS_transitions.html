@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS transition animation</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<style>
+    #grow-circle {
+        cx: 100;
+        cy: 250;
+        r: 50px;
+        fill: #eaeaea;
+        stroke: #eaeaea;
+        stroke-width: 1;
+        transition-property: all;
+        transition-duration: .33s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #grow-circle:hover {
+        r: 100px;
+        fill: pink;
+        stroke: green;
+        stroke-width: 15;
+    }
+
+    #circle-stroke {
+        cx: 400;
+        cy: 250;
+        r: 50px;
+        transition-property: stroke-dashoffset;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+    }
+
+    #circle-stroke:hover {
+        stroke-dashoffset: 0;
+    }
+
+    #ampersand {
+        font-size: 14rem;
+        font-weight: 900;
+        stroke: black;
+        fill: #eaeaea;
+        stroke-dasharray: 1450;
+        stroke-dashoffset: 1450;
+        transition-property: stroke-dashoffset;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+    }
+
+    #ampersand:hover {
+        stroke-dashoffset: 0;
+    }
+</style>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">CSS transitions</div>
+            <div class="subtitle">transition animation</div>
+        </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <!--
+                   for the lesson
+                -->
+                <svg width="500" height="500" viewbox="0 0 500 500">
+ 
+                    <circle id="grow-circle"></circle>
+                    
+                    <circle id="circle-stroke" fill="#eaeaea" stroke="black" stroke-width="10"
+                        pathLength="100"></circle>
+                   
+                    <!-- <circle id="grow-circle"></circle> -->
+                    <text id="ampersand" x="250" y="250" text-anchor="middle" dominant-baseline="middle" stroke="black" stroke-width="5" fill="none">&</text>
+                </svg>
+
+            </div>
+            <div class="info">container size: 500px x 500px </div>
+        </div>
+    </div>
+</body>
+
+</html>

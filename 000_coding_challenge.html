@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gear Turns - SVG attributes</title>
+    <script src="./custom-slider-component.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<style>
+    svg {
+        border-bottom: 5px solid black;
+    }
+
+    .content-holder {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+
+    <div class="content-holder">
+
+
+        <!--
+                   for the lesson
+                -->
+        <svg width="500" height="800" viewbox="0 0 500 800">
+            <rect width="499" height="799" stroke="black" stroke-width="1" fill="none"></rect>
+            <!-- <circle id="ball" cx="100" cy="100" r="10" fill="red" stroke="black" stroke-width="5"></circle> -->
+        </svg>
+
+
+    </div>
+</body>
+<script>
+
+    class Ball {
+        constructor(x, y, color, holder) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.r = 10 + Math.random() * 20;
+            this.elacticity = .6 + Math.random() * .3;
+            this.friction = .9975;
+            this.holder = holder;
+            this.element = null;
+            this.namespace = "http://www.w3.org/2000/svg";
+
+            this.position = {
+                x: this.x,
+                y: this.y
+            }
+
+            this.velocity = {
+                x: (Math.random() * 10) - 5,
+                y: (Math.random() * 10) - 5
+            }
+
+            this.accel = {
+                x: 0,
+                y: 1
+            }
+
+            this.w = 500;
+            this.h = 800;
+            this.maxX = this.w - this.r;
+            this.maxY = this.h - this.r;
+        }
+
+        init(){
+            const circle = document.createElementNS(this.namespace, "circle");
+            circle.setAttribute("cx", this.x);
+            circle.setAttribute("cy", this.y);
+            circle.setAttribute("r", this.r);
+            circle.setAttribute("fill", this.color);
+            circle.setAttribute("stroke", "black");
+            circle.setAttribute("stroke-width", 3);
+
+            this.holder.appendChild(circle);
+
+            this.element = circle;
+        }
+
+        update() {
+            this.velocity.y += this.accel.y;
+            this.velocity.x *= this.friction;
+            this.position.x += this.velocity.x;
+            if (this.position.x > this.maxX) {
+                this.position.x = this.maxX;
+                this.velocity.x *= -.9;
+            } else if (this.position.x < this.r) {
+                this.position.x = this.r;
+                this.velocity.x *= -.9;
+            }
+
+            this.position.y += this.velocity.y;
+            if (this.position.y > this.maxY) {
+                this.position.y = this.maxY;
+                this.velocity.y *= -this.elacticity;
+            } 
+
+            this.element.setAttribute("cx", this.position.x);
+            this.element.setAttribute("cy", this.position.y);
+
+        }
+
+
+    }
+
+    const balls = [];
+    const num = 100;
+    const svg = document.querySelector("svg");
+
+    function build() {
+        for (let i = 0; i < num; i++) {
+            const ball = new Ball(Math.random() * 500, -Math.random() * 500, getColor(), svg);
+            ball.init();
+            balls.push(ball);
+        }
+    }
+
+    function getColor() {
+        const h = Math.round(Math.random() * 360);
+        const s = 50 + Math.round(Math.random() * 50);
+        const l = 25 + Math.round(Math.random() * 50);
+
+        return `hsl(${h}, ${s}%, ${l}%)`
+    }
+
+    build();
+    move();
+
+    function move() {
+        balls.forEach((ball) => {
+            ball.update();
+        })
+
+        window.requestAnimationFrame(move);
+    }
+    
+    
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

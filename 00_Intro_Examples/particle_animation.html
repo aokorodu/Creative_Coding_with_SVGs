@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript Animation Particle System</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">Javascript Animation</div>
+            <div class="subtitle">Basic Particle System</div>
+
+        </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <svg id="svg" width="500" height="500" viewbox="0 0 500 500">
+                    <style>
+                        circle {
+                            stroke: none;
+                        }
+
+                        svg {
+                            background-color: #ffffff;
+                        }
+
+                        #bg{
+                            transition-property: all;
+                            transition-duration: 333ms;
+                        }
+
+                        #title{
+                            transition-property: all;
+                            transition-duration: 333ms;
+                        }
+                    </style>
+                    <defs>
+                        <filter id="blur-filter">
+                            <feGaussianBlur id="gauss-blur" stdDeviation="2" />
+                        </filter>
+                    </defs>
+                    <rect id="bg" x="0" y="0" width="499" height="499" fill="#2E0249" stroke="white" stroke-width="10" stroke-opacity=".3"/>
+                    <text id="title" x="250" y="250" fill="#F806CC" fill-opacity=".7" text-anchor="middle"
+                        dominant-baseline="middle" font-size="40" font-weight="100">z u u b a d i g i t a l</text>
+                </svg>
+
+            </div>
+        </div>
+        <div class="section-holder">
+            <div class="radio-container">
+                <div class="radio-label">palette</div>
+                <div class="radio-group-container">
+                    <label class="radio-button-container">purple
+                        <input type="radio" value="purple" name="palette" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-button-container">retro
+                        <input type="radio" value="retro" name="palette">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-button-container">pastel
+                        <input type="radio" name="palette" value="pastel">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-button-container">green
+                        <input type="radio" name="palette" value="green">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    class Particle {
+        constructor(x, y, r, w, h, fill) {
+            this.startX = x;
+            this.startY = y;
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.right = w - r;
+            this.top = this.startY;
+            this.fill = fill;
+            this.position = {
+                x: x,
+                y: y
+            }
+            this.velocity = {
+                x: 3 - Math.random() * 6,
+                y: -8 - Math.random() * 6
+            }
+            this.acceleration = {
+                x: 0,
+                y: .2
+            }
+            this.circ = null;
+            this.lifespan = 200;
+        }
+
+        init(container) {
+            this.reset();
+            const namespace = "http://www.w3.org/2000/svg";
+            this.circ = document.createElementNS(namespace, "circle");
+            this.circ.setAttribute("cx", this.position.x);
+            this.circ.setAttribute("cy", this.position.y);
+            this.circ.setAttribute("r", this.r);
+            this.circ.setAttribute("fill", this.fill);
+            this.circ.setAttribute("fill-opacity", .3 + Math.random() * .6);
+            container.appendChild(this.circ);
+        }
+
+        changeFill(newFill) {
+            if (newFill == this.fill) return;
+            this.fill = newFill;
+            this.circ.setAttribute("fill", this.fill);
+
+        }
+
+        update() {
+            this.lifespan--;
+            this.velocity.x += this.acceleration.x;
+            this.velocity.y += this.acceleration.y;
+            this.position.x += this.velocity.x;
+            this.position.y += this.velocity.y;
+            this.bounceIfNeeded();
+            this.draw();
+        }
+
+        bounceIfNeeded() {
+            if (this.position.y > this.top) {
+                this.reset();
+                return;
+            }
+
+            if (this.position.x > this.right) {
+                this.position.x = this.right;
+                this.velocity.x *= -1;
+            } else if (this.position.x < this.r) {
+                this.position.x = this.r;
+                this.velocity.x *= -1;
+            }
+
+
+        }
+
+        reset() {
+            this.position = {
+                x: this.startX,
+                y: this.startY
+            }
+            this.velocity = {
+                x: 1 - Math.random() * 2,
+                y: -7 - Math.random() * 6
+            }
+
+            this.lifespan = 200;
+        }
+
+        draw() {
+            this.circ.setAttribute("cx", this.position.x);
+            this.circ.setAttribute("cy", this.position.y);
+            this.circ.setAttribute("fill-opacity", .4 * this.lifespan/100);
+        }
+    }
+
+    const particles = [];
+    const num_particles = 150;
+    const svg = document.querySelector("#svg");
+    const bg = document.querySelector("#bg");
+    const title = document.querySelector("#title");
+
+    const purplePalette = ["#2E0249", "#A91079", "#F806CC", "#570A57", "#810955"];
+    const retroPalette = ["#EEEEEE", "#DEDEDE", "#FF4949", "#C10000"];
+    const pastelPalette = ["#C6DCE4", "#FFE6E6", "#DAEAF1", "#F2D1D1" ];
+    const greenPalette = ["#7DCE13", "#5BB318", "#2B7A0B", "#EAE509"];
+    const colors = {
+        "purple": purplePalette,
+        "retro": retroPalette,
+        "pastel": pastelPalette,
+        "green": greenPalette
+    }
+    let currentPalette = colors["purple"];
+
+    const containerDimensionsRadios = document.querySelectorAll('input[type=radio][name="palette"]');
+
+
+    function initRadioButtons() {
+        for (const radio of containerDimensionsRadios) {
+            radio.addEventListener('change', () => {
+                console.log(radio.value);
+                changeColors(radio.value)
+            })
+        }
+    }
+
+    initRadioButtons();
+    initParticles();
+    moveParticles();
+
+    function getParticleColor() {
+        const max = currentPalette.length - 1;
+        const min = 1;
+        return currentPalette[Math.floor(Math.random() * (max - min + 1) + min)]
+    }
+
+    function changeColors(newColor) {
+        currentPalette = colors[newColor];
+
+        particles.forEach((particle)=>{
+            particle.changeFill(getParticleColor())
+        })
+
+        bg.setAttribute("style", `fill:${currentPalette[0]}`);
+        title.setAttribute("style", `fill:${currentPalette[2]}`);
+        //title.setAttribute("fill", currentPalette[2])
+
+        
+    }
+
+    function initParticles() {
+        for (let i = 0; i < num_particles; i++) {
+            const part = new Particle(250, 520, 4 + Math.round(Math.random() * 6), 500, 500, getParticleColor());
+            part.init(svg);
+            particles.push(part)
+        }
+    }
+    function moveParticles() {
+        particles.forEach((part) => {
+            part.update();
+        })
+
+        window.requestAnimationFrame(moveParticles)
+    }
+</script>
+
+</html>

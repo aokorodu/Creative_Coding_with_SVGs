@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>complex CSS animation</title>
+    <script src="../js/custom-slider-component.js"></script>
+    <script src="../js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">complex CSS animation</div>
+        </div>
+    </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <!--
+                    
+                -->
+                <svg width="500" height="500" viewbox="0 0 500 500">
+                    <style>
+                        .tire {
+                            animation-name: spin;
+                            animation-duration: .4s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                            animation-direction: reverse;
+                        }
+
+                        .body {
+                            animation-name: jiggle;
+                            animation-duration: .33s;
+                            animation-timing-function: ease-in-out;
+                            animation-iteration-count: infinite;
+                            transform-origin: 50% 100%;
+                            animation-direction: alternate-reverse;
+                        }
+
+                        .range_mid {
+                            animation-name: parallax;
+                            animation-duration: 30s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                        }
+
+                        .range_back {
+                            animation-name: parallax;
+                            animation-duration: 60s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                        }
+
+                        .range_front {
+                            animation-name: parallax;
+                            animation-duration: 20s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                        }
+
+                        .inner {
+                            animation-name: pulse;
+                            animation-duration: 6s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                        }
+
+                        .middle {
+                            animation-name: pulse;
+                            animation-duration: 6s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                            animation-delay: 2s;
+                        }
+
+                        .outer {
+                            animation-name: pulse;
+                            animation-duration: 6s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                            animation-delay: 4s;
+                        }
+
+                        @keyframes parallax {
+                            0% {
+                                transform: translate(-400%)
+                            }
+
+                            100% {
+                                transform: translate(0%)
+                            }
+                        }
+
+                        @keyframes spin {
+                            0% {
+                                transform: rotate(0deg)
+                            }
+
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        @keyframes jiggle {
+                            0% {
+                                transform: translateY(-.15%);
+                            }
+
+
+                            100% {
+                                transform: translateY(.15%);
+                            }
+                        }
+
+                        @keyframes pulse {
+                            0% {
+                                transform: scale(1);
+                                opacity: 1;
+                            }
+
+                            100% {
+                                transform: scale(2);
+                                opacity: 0;
+                            }
+                        }
+                    </style>
+                    <defs>
+                        <linearGradient id="sky_gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="300">
+                            <stop offset="0.0028" style="stop-color:#3CA0FC"></stop>
+                            <stop offset="1" style="stop-color:#DBECFB"></stop>
+                        </linearGradient>
+                        <linearGradient id="mist_gradient" gradientUnits="userSpaceOnUse" x1="0" y1="250" x2="0"
+                            y2="500">
+                            <stop offset="0" style="stop-color:#ffffff; stop-opacity: 0"></stop>
+                            <stop offset="1" style="stop-color:#ffffff; stop-opacity: .9"></stop>
+                        </linearGradient>
+                        <g id="body">
+                            <path
+                                d="M42.4901 16.9515L58.8659 4.64363C62.3091 2.05677 66.4993 0.658111 70.806 0.658113H112.528C116.948 0.651257 121.301 1.74458 125.194 3.83954C129.087 5.9345 132.397 8.96524 134.827 12.6586C141.568 22.9518 147.601 38.6523 137.868 54.825H2.47022V40.7878C2.46852 37.8727 3.45498 35.0431 5.26859 32.7609C7.0822 30.4787 9.61584 28.8786 12.456 28.2219C21.8324 26.048 35.5072 22.1997 42.4901 16.9515Z"
+                                fill="#ff1100" />
+                            <path opacity="0.03"
+                                d="M50.1704 46.8759V34.4417C50.1704 32.7994 50.8228 31.2243 51.9841 30.063C53.1454 28.9017 54.7205 28.2493 56.3628 28.2493H116.168C118.513 28.2304 120.778 29.0994 122.509 30.6818C124.24 32.2642 125.309 34.4428 125.5 36.7803C125.742 39.2477 125.219 41.7298 124.001 43.8895L117.161 46.8759H50.1704Z"
+                                fill="black" />
+                            <path
+                                d="M141.261 46.8759H1.81753C0.877648 46.8759 0.115723 47.6378 0.115723 48.5777V53.1286C0.115723 54.0685 0.877648 54.8304 1.81753 54.8304H141.261C142.201 54.8304 142.963 54.0685 142.963 53.1286V48.5777C142.963 47.6378 142.201 46.8759 141.261 46.8759Z"
+                                fill="#ff1100" />
+                            <path opacity="0.46"
+                                d="M141.261 46.8759H1.81753C0.877648 46.8759 0.115723 47.6378 0.115723 48.5777V53.1286C0.115723 54.0685 0.877648 54.8304 1.81753 54.8304H141.261C142.201 54.8304 142.963 54.0685 142.963 53.1286V48.5777C142.963 47.6378 142.201 46.8759 141.261 46.8759Z"
+                                fill="white" />
+                            <path
+                                d="M62.2584 8.84324L50.1811 20.421C49.88 20.7097 49.6722 21.0818 49.5842 21.4895C49.4962 21.8972 49.5321 22.3219 49.6873 22.709C49.8425 23.0961 50.1099 23.428 50.4552 23.662C50.8004 23.896 51.2078 24.0215 51.6249 24.0223H119.055C119.661 24.0224 120.258 23.878 120.797 23.601C121.336 23.324 121.801 22.9225 122.154 22.4297C122.506 21.9369 122.736 21.3672 122.825 20.7677C122.913 20.1682 122.857 19.5562 122.662 18.9827L120.197 11.7473C119.656 10.1589 118.631 8.77962 117.267 7.80298C115.902 6.82634 114.266 6.30131 112.588 6.30151H68.5825C66.2258 6.30228 63.9602 7.21281 62.2584 8.84324Z"
+                                fill="#24285B" />
+                            <path
+                                d="M126.373 4.51721C126.373 4.51721 123.211 18.2415 141.129 25.6635C141.129 25.6635 138.093 10.6876 126.373 4.51721Z"
+                                fill="#24285B" />
+                            <path opacity="0.03"
+                                d="M26.5866 34.9575C26.2722 34.929 25.9781 34.79 25.7566 34.5651C25.5351 34.3402 25.4005 34.044 25.3768 33.7292C25.3531 33.4144 25.4418 33.1014 25.6271 32.8458C25.8125 32.5903 26.0824 32.4087 26.389 32.3335C29.4981 31.5183 32.7825 31.6773 35.7983 32.7891C38.7404 33.8316 41.3801 35.5832 43.4839 37.889C43.8212 38.271 44.0507 38.7358 44.1489 39.2358C44.2472 39.7358 44.2106 40.2529 44.0429 40.7341C43.8753 41.2152 43.5826 41.6431 43.1949 41.9738C42.8073 42.3044 42.3386 42.526 41.837 42.6157C41.2362 42.7275 40.6154 42.6459 40.064 42.3825C39.5125 42.1191 39.0589 41.6875 38.7683 41.1499C37.6593 39.0254 34.6455 35.77 26.5866 34.9575Z"
+                                fill="black" />
+                            <path d="M84.6462 4.51721L83.3013 27.7496H95.3841L91.4919 4.51721H84.6462Z"
+                                fill="#ff1100" />
+                            <path d="M123.205 42.6597H50.1704V43.8894H123.205V42.6597Z" fill="#24285B" />
+                            <path
+                                d="M70.4219 28.2493H64.8389C63.9899 28.2493 63.3018 28.9375 63.3018 29.7864V30.2805C63.3018 31.1294 63.9899 31.8176 64.8389 31.8176H70.4219C71.2708 31.8176 71.959 31.1294 71.959 30.2805V29.7864C71.959 28.9375 71.2708 28.2493 70.4219 28.2493Z"
+                                fill="white" />
+                            <path
+                                d="M118.814 28.2493H113.231C112.382 28.2493 111.694 28.9375 111.694 29.7864V30.2805C111.694 31.1294 112.382 31.8176 113.231 31.8176H118.814C119.663 31.8176 120.351 31.1294 120.351 30.2805V29.7864C120.351 28.9375 119.663 28.2493 118.814 28.2493Z"
+                                fill="white" />
+                            <path opacity="0.16" d="M103.168 6.30151L106.797 24.0223H116.091L110.689 6.30151H103.168Z"
+                                fill="#BED9F4" />
+                            <path opacity="0.16" d="M68.6382 6.30151L72.2614 24.0223H81.5554L76.1536 6.30151H68.6382Z"
+                                fill="#BED9F4" />
+                            <path
+                                d="M58.1145 18.0055H51.8288C50.2765 18.0055 49.0181 19.2639 49.0181 20.8162V21.711C49.0181 23.2634 50.2765 24.5218 51.8288 24.5218H58.1145C59.6668 24.5218 60.9252 23.2634 60.9252 21.711V20.8162C60.9252 19.2639 59.6668 18.0055 58.1145 18.0055Z"
+                                fill="#68E1FD" />
+                            <path opacity="0.46"
+                                d="M58.1145 18.0055H51.8288C50.2765 18.0055 49.0181 19.2639 49.0181 20.8162V21.711C49.0181 23.2634 50.2765 24.5218 51.8288 24.5218H58.1145C59.6668 24.5218 60.9252 23.2634 60.9252 21.711V20.8162C60.9252 19.2639 59.6668 18.0055 58.1145 18.0055Z"
+                                fill="white" />
+                            <path
+                                d="M5.07846 33.5552H14.6964C14.9779 33.554 15.2544 33.6288 15.497 33.7716C15.7395 33.9145 15.939 34.1201 16.0744 34.3668C16.2099 34.6136 16.2763 34.8923 16.2666 35.1736C16.2569 35.4549 16.1715 35.7283 16.0194 35.9652L13.4557 39.9617C13.1056 40.5088 12.6234 40.959 12.0535 41.2708C11.4836 41.5826 10.8444 41.746 10.1949 41.7458H2.50928V40.7302C2.5085 38.1065 3.43169 35.5662 5.11688 33.5552H5.07846Z"
+                                fill="white" />
+                        </g>
+                        <g id="wheel">
+                            <circle cx="0" cy="0" r="15" fill="white" stroke="black" stroke-width="8"></circle>
+                            <circle cx="0" cy="0" r="8" fill="none" stroke="black" stroke-width="2"
+                                stroke-dasharray="10 10" pathlength="100"></circle>
+                            <circle cx="0" cy="0" r="4" fill="grey" stroke="black" />
+                        </g>
+                        <g id="mountains">
+                            <path
+                                d="M300 500H0s32-100 40-105l16-10s16-59 22-66c6-6 20-9 23-16 3-8 22-59 29-68l1-1c5 0 48 93 48 93s13-1 20 3l2 3c5 7 25 45 28 45s17 5 25 11l6 5c6 7 36 62 40 106Z" />
+                            <path
+                                d="M500 500H201s32-78 40-82l16-8s15-46 22-52c6-5 20-7 23-13 2-5 21-46 28-52l2-1c5 0 48 73 48 73s13-1 19 2l3 2c4 6 24 35 28 35 3 0 16 5 24 9l6 4c6 6 36 49 40 83Zm1800 0h-300s32-100 40-105l16-10s16-59 22-66c6-6 20-9 23-16 3-8 22-59 29-68l1-1c5 0 48 93 48 93s13-1 20 3l2 3c5 7 25 45 28 45s17 5 25 11l6 5c6 7 36 62 40 106Z" />
+                            <path
+                                d="M2500 500h-299s32-78 40-82l16-8s15-46 22-52c6-5 20-7 23-13 2-5 21-46 28-52l2-1c5 0 48 73 48 73s13-1 19 2l3 2c4 6 24 35 28 35 3 0 16 5 24 9l6 4c6 6 36 49 40 83Zm-1724 0H500s29-58 37-61l14-5s15-34 21-38c5-4 18-5 21-10 2-4 20-34 26-39h2c4 0 44 53 44 53s12 0 18 2l2 2c4 4 23 26 26 26a102 102 0 0 1 28 9c5 4 33 36 37 61Zm-676 0h-200s21-48 26-50l11-5s11-28 15-31 13-4 15-8c2-3 15-28 19-32l1-1c4 0 32 45 32 45s9-1 13 1l2 1c3 4 17 22 19 22a67 67 0 0 1 20 8c4 3 24 29 27 50Z" />
+                            <path
+                                d="M600 494H400s21-48 26-50l11-5s11-28 15-31 13-5 15-8c2-4 15-28 19-32l1-1c4 0 32 44 32 44s9 0 13 2l2 1c3 3 17 22 19 22a67 67 0 0 1 20 7c4 4 24 30 27 51Zm2000 6h-200s21-48 26-50l11-5s11-28 15-31 13-4 15-8c2-3 15-28 19-32l1-1c4 0 32 45 32 45s9-1 13 1l2 1c3 4 17 22 19 22a67 67 0 0 1 20 8c4 3 24 29 27 50Zm-500 0h-200s21-48 26-50l11-5s11-28 15-31 13-4 15-8c2-3 15-28 19-32l1-1c4 0 32 45 32 45s9-1 13 1l2 1c3 4 17 22 19 22a67 67 0 0 1 20 8c4 3 24 29 27 50Zm-1230 0H625s26-66 33-69l13-7s13-39 18-43 16-6 19-11c2-5 17-39 23-45h1c4 0 39 61 39 61s11-1 16 2l3 2c3 4 20 30 23 30 2 0 13 3 20 7l4 3c5 5 30 41 33 70Z" />
+                            <path
+                                d="M1289 500H760s56-84 70-88c14-5 29-8 29-8s27-50 38-56c11-5 36-7 41-14 5-6 38-49 50-56l3-1c9 0 85 78 85 78s23-1 34 3l5 2c7 6 43 38 49 38a245 245 0 0 1 54 13c10 6 63 52 71 89Z" />
+                            <path
+                                d="M1710 500h-528s56-84 70-88l28-8s28-50 39-56c11-5 35-7 41-14 4-6 38-49 50-56l3-1c8 0 84 78 84 78s23-1 35 3l4 2c8 6 44 38 50 38a245 245 0 0 1 54 13c10 6 63 52 70 89Z" />
+                            <path
+                                d="M1465 500h-426s45-58 57-61l23-5s22-34 31-38 28-5 33-10c4-4 30-34 40-39h2c8 0 69 53 69 53s18 0 27 2l4 2c6 4 35 26 40 26a227 227 0 0 1 43 9c8 4 51 36 57 61Z" />
+                            <path
+                                d="M1887 500h-426s45-58 56-61l23-5s22-34 31-38 29-5 33-10c4-4 31-34 41-39h2c7 0 68 53 68 53s19 0 28 2l4 2c6 4 35 26 40 26a227 227 0 0 1 43 9c8 4 51 36 57 61Z" />
+                            <path
+                                d="M1702 500h-387s41-78 52-82l20-8s21-46 29-52c8-5 26-7 30-13 3-5 28-46 36-52l2-1c7 0 62 73 62 73s17-1 26 2l3 2c6 6 32 35 36 35a146 146 0 0 1 40 13c7 6 46 49 51 83Zm298 0h-263s28-40 35-42l14-4s14-24 19-27c6-2 18-3 21-7 2-2 19-23 25-27h1c4 0 42 37 42 37s11 0 17 2l2 1c4 3 22 18 25 18a126 126 0 0 1 27 6c5 3 31 25 35 43Z" />
+
+                        </g>
+                    </defs>
+                    <rect fill="url(#sky_gradient)" width="500" height="500"></rect>
+                    <!-- <rect id="sky" x="0" y="0" width="500" height="500" fill="#f1f1f1" /> -->
+                    <g id="sun" transform="translate(350, 150)">
+                        <circle id="core" cx="0" cy="0" r="30" fill="#FEE6D5" opacity="1"></circle>
+                        <circle id="inner-sun" class="inner" cx="0" cy="0" r="30" fill="#FEE6D5" opacity=".3"></circle>
+                        <circle id="middle-sun" class="middle" cx="0" cy="0" r="30" fill="#FEE6D5" opacity=".3"></circle>
+                        <circle id="outer-sun" class="outer" cx="0" cy="0" r="30" fill="#FEE6D5"></circle>
+                    </g>
+                    <g id="mountain-range" fill="#6DAFBD" transform="scale(1, .7) translate(0, 230)">
+                        <use href="#mountains" id="range_back" class="range_back" x="0" y="-150" opacity=".5"></use>
+                    </g>
+                    <g id="mountain-range" fill="#4B757E" transform="scale(1, .5) translate(0, 425)">
+                        <use href="#mountains" id="range_mid" class="range_mid" x="0" y="-75" opacity="1"></use>
+                    </g>
+                    <g id="mountain-range" fill="#35535A" transform="scale(1, .5) translate(0, 425)">
+                        <use href="#mountains" id="range_front" class="range_front" x="0" y="-25" opacity="1"></use>
+                    </g>
+
+                    <rect id="ground" x="0" y="425" width="500" height="500" fill="#333" opacity="1" />
+                    <rect fill="url(#mist_gradient)" x="0" y="-75" width="500" height="500"></rect>
+                    <g id="car" transform="translate(190, 375)">
+                        <g id="body-holder">
+                            <use href="#body" id="carBody" class="body"></use>
+                        </g>
+                        <g transform="translate(40, 55)">
+                            <use id="front-wheel" href="#wheel" class="tire"></use>
+                        </g>
+                        <g transform="translate(110, 55)">
+                            <use id="back-wheel" href="#wheel" class="tire"></use>
+                        </g>
+                    </g>
+
+                    <g id="toggle-button" transform="translate(50 50)">
+                        <text fill="white" text-anchor="middle" dominant-baseline="middle">PAUSE</text>
+                        <rect x="-35" y="-20" width="70" height="40" fill="white" fill-opacity=".2" stroke="white" stroke-opacity=".3" rx="5" ry="5"/>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+
+</body>
+<script>
+    let paused = false;
+    // wheels
+    const frontWheel = document.querySelector("#front-wheel");
+    const backWheel = document.querySelector("#back-wheel");
+    const rangeFront = document.querySelector("#range_front");
+    const rangeMid= document.querySelector("#range_mid");
+    const rangeBack = document.querySelector("#range_back");
+    const carBody = document.querySelector("#carBody");
+
+    const innerSun = document.querySelector("#inner-sun");
+    const middleSun = document.querySelector("#middle-sun");
+    const outerSun = document.querySelector("#outer-sun");
+
+    const toggleButton = document.querySelector("#toggle-button")
+    toggleButton.addEventListener("click", toggleClick);
+    const toggleText = toggleButton.querySelector("text");
+
+    function toggleClick() {
+        paused = !paused;
+        const playState = paused ? "paused" : "running";
+        
+        frontWheel.style.animationPlayState = playState;
+        backWheel.style.animationPlayState = playState;
+
+        rangeFront.style.animationPlayState = playState;
+        rangeMid.style.animationPlayState = playState;
+        rangeBack.style.animationPlayState = playState;
+
+        carBody.style.animationPlayState = playState;
+
+        innerSun.style.animationPlayState = playState;
+        middleSun.style.animationPlayState = playState;
+        outerSun.style.animationPlayState = playState;
+
+        toggleText.textContent = paused ? "PLAY" : "PAUSE"
+    }
+
+    //togglePause();
+
+
+</script>
+
+</html>

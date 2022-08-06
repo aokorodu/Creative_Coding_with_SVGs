@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS Wave Animation</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">CSS Wave Animation</div>
+            <div class="subtitle">keyframe animation</div>
+
+        </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <!--
+                   for the lesson
+                -->
+                <svg width="500" height="500" viewbox="0 0 500 500">
+                    <defs>
+
+                    </defs>
+                    <style>
+                        
+                          .sea {
+                            transform-origin: 250px 1250px;
+                            animation-name: roll;
+                            animation-duration: 30s;
+                            animation-timing-function: ease-in-out;
+                            animation-iteration-count: infinite;
+                            animation-direction: none;
+                          }
+                          
+                          .sea2 {
+                            transform-origin: 250px 1270px;
+                            animation-name: roll;
+                            animation-duration: 32s;
+                            animation-timing-function: ease-in-out;
+                            animation-iteration-count: infinite;
+                            animation-direction: alternate;
+                          }
+
+                          .sea3 {
+                            transform-origin: 250px 1290px;
+                            animation-name: roll;
+                            animation-duration: 34s;
+                            animation-timing-function: linear;
+                            animation-iteration-count: infinite;
+                            animation-direction: alternate;
+                          }
+                          
+                          
+                          @keyframes roll {
+                            0% {
+                              transform: rotate(0deg) scale(1) translateY(0px);
+                            }
+                            50% {
+                                transform: rotate(180deg) scale(1.1, .9) translateY(0px);
+                              }
+                            100% {
+                              transform: rotate(360deg) scale(1) translateY(0px);
+                            }
+                          }
+                          
+                    </style>
+                    <rect id="bg" width="500" height="500" x="0" y="0" fill="cornflowerblue" stroke="none" stroke-width="1" />
+                    <g transform="translate(0, -2000)">
+                      <rect id="bg" class="sea" width="2000" height="2000" x="-750" y="250" rx="750" ry="750" fill="white" stroke="white" stroke-width="1" opacity=".3" />
+                      <rect id="bg" class="sea2" width="2000" height="2025" x="-750" y="270" rx="750" ry="750" fill="white" opacity=".5" />
+                      <rect id="bg" class="sea3" width="2000" height="2025" x="-750" y="290" rx="750" ry="750" fill="white" opacity=".5" />
+                    </g>
+                </svg>
+
+            </div>
+            <div class="info">container size: 500px x 500px </div>
+        </div>
+    </div>
+</body>
+
+</html>

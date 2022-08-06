@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>bubble animation</title>
+    <script src="../js/custom-slider-component.js"></script>
+    <script src="../js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">Bubble Animation Example</div>
+        </div>
+    </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <!--
+                    
+                -->
+                <svg width="500" height="500" viewBox="250 250 500 500">
+                    <defs>
+                        <linearGradient id="sea-gradient" x1="0" y1="0" x2="0" y2="1000"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#0EA8FF" />
+                            <stop offset="100%" stop-color="#004CA5" />
+                        </linearGradient>
+
+                        <g id="bubble">
+                            <circle id="Ellipse 1" cx="25" cy="25" r="25" fill="#FFFEFE" fill-opacity="0.05" />
+                            <path id="Line 1"
+                                d="M7.96531 23.0898C7.96531 23.0898 7.55757 18.1362 11.4332 13.7802C15.3089 9.42423 20.2762 9.25304 20.2762 9.25304"
+                                stroke="white" stroke-opacity="0.08" stroke-width="9" stroke-linecap="round"
+                                fill="none" />
+                            <ellipse id="Ellipse 2" cx="37.1296" cy="36.4422" rx="3.05556" ry="4.02778"
+                                transform="rotate(29.6541 37.1296 36.4422)" fill="#FFFEFE" fill-opacity="0.1" />
+                            <ellipse id="Ellipse 3" cx="32.2215" cy="43.1089" rx="1.61656" ry="1.97652"
+                                transform="rotate(53.7931 32.2215 43.1089)" fill="#FFFEFE" fill-opacity="0.1" />
+
+
+                        </g>
+                    </defs>
+                    <g id="bubble-holder" >
+                        <rect id="blue_gradient" width="1000" height="1000" fill="url(#sea-gradient)" />
+                    </g>
+
+                </svg>
+
+            </div>
+            <div id="info_text" class="info">container size: 500px x 500px </div>
+            <div class="slidecontainer">
+                <custom-slider id="speed_slider" minimum="-20" maximum="20" step="0.1" val="1" label="bubble speed">
+                </custom-slider>
+                <custom-slider id="zoom_slider" minimum="100" maximum="1000" step="1" val="500" label="zoom"></custom-slider>
+            </div>
+        </div>
+
+</body>
+<script>
+
+    const svg = document.querySelector("svg");
+    const bubbleHolder = document.querySelector("#bubble-holder");
+    const bubbleSpeedSlider = document.querySelector("#speed_slider");
+    const zoomSlider = document.querySelector("#zoom_slider");
+    const namespace = "http://www.w3.org/2000/svg";
+    const numBubbles = 300;
+    const bubbles = [];
+    const w = 1000;
+    const h = 1000;
+    console.log('w: ', w, ' h:', h);
+    //svg.setAttribute("viewBox", "0 0 500 500");
+
+    bubbleSpeedSlider.addEventListener("value", (e) => {
+        changeSpeed(e.detail.value);
+    })
+
+    const changeSpeed = (newSpeed) => {
+        for (let bubble of bubbles) {
+            bubble.setSpeed(newSpeed)
+        }
+    }
+
+    zoomSlider.addEventListener("value", (e) => {
+        changeZoom(e.detail.value);
+    })
+
+    const changeZoom = (newZoom) =>{
+        console.log('new zoom:', newZoom);
+        const pos = (1000 - newZoom)/2;
+        console.log('pos:', pos);
+        const str = `${pos} ${pos} ${newZoom} ${newZoom}`;
+        console.log('str:', str);
+        svg.setAttribute("viewBox", str)
+    }
+
+
+    const makeBubbles = () => {
+        for (let i = 0; i < numBubbles; i++) {
+
+            const bubble = document.createElementNS(namespace, "use");
+            const xpos = -50 + Math.random() * (w + 100);
+            const ypos = -50 + Math.random() * (h + 100);
+            const scale = .1 + Math.random() * 1;
+            bubble.setAttribute("href", "#bubble");
+            bubble.setAttribute("x", xpos / scale);
+            bubble.setAttribute("y", ypos);
+            bubble.setAttribute("transform", `scale(${scale})`);
+            bubble.setAttribute("opacity", .8 + Math.random() * 2);
+
+
+            const bubbleObj = {
+                x: xpos,
+                y: ypos,
+                scale: scale,
+                speed: 1,
+                element: bubble,
+                maxY: (h + 50) / scale,
+                floating: true,
+                setSpeed: function (newSpeed) {
+                    this.speed = newSpeed;
+                    this.speed > 0 ? this.floating = true : this.floating = false;
+                },
+                float: function () {
+                    this.y -= this.speed;
+                    if (this.floating) {
+                        if (this.y < -50) {
+                            this.y = this.maxY;
+                            this.resetX();
+                        }
+                    } else {
+                        if (this.y > this.maxY) {
+                            this.y = -50;
+                            this.resetX();
+                        }
+                    }
+
+                    this.element.setAttribute("x", this.x);
+                    this.element.setAttribute("y", this.y);
+
+                },
+                resetX: function () {
+                    this.x = -50 + Math.random() * (w + 100) / this.scale;
+                },
+                resetY: function () {
+                    this.y = this.maxY;
+                },
+
+                reset: function () {
+                    this.resetX();
+                    this.resetY();
+                },
+
+                pop: function () {
+                    this.reset();
+                    console.log('pop', this.y)
+                }
+
+
+            }
+
+            bubbles.push(bubbleObj);
+            bubbleHolder.appendChild(bubble);
+        }
+    }
+
+    const floatBubbles = () => {
+        for (let bubble of bubbles) {
+            bubble.float();
+        }
+        requestAnimationFrame(floatBubbles)
+    }
+
+    makeBubbles();
+    floatBubbles();
+
+
+</script>
+
+</html>

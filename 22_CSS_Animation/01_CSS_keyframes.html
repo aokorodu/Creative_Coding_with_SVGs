@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SVG CSS Animation</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<style>
+    #hover-ball {
+        animation: hover 2s infinite alternate ease-in-out;
+    }
+
+    #hover-ball-shadow {
+        animation: shadowGrow 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes hover {
+        from {
+            cy: 250;
+        }
+
+        to {
+            cy: 200
+        }
+    }
+
+    @keyframes shadowGrow {
+        from {
+            fill-opacity: .5;
+            transform: scale(1);
+        }
+
+        to {
+
+            fill-opacity: .2;
+            transform: scale(.8);
+        }
+    }
+</style>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">SVG CSS Animation</div>
+        </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <!--
+                   for the lesson
+                -->
+                <svg width="500" height="500" viewbox="0 0 500 500">
+                    <defs>
+                        <filter id="my-filter" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="10" />
+                        </filter>
+                        <radialGradient id="my-gradient" cx=".5" cy=".25">
+                            <stop offset="0%" stop-color="white" />
+                            <stop offset="100%" stop-color="orange" />
+                        </radialGradient>
+
+                        <ellipse id="hover-ball-object" filter="url(#my-filter)" cx="0" cy="0" rx="100" ry="20">
+                        </ellipse>
+                    </defs>
+
+                    <circle id="hover-ball" cx="250" cy="250" r="100" fill="url(#my-gradient)"></circle>
+
+                    <g id="shadow-holder" transform="translate(250 400)">
+                        <use id="hover-ball-shadow" href="#hover-ball-object" fill="black" fill-opacity=".2"></use>
+                    </g>
+
+
+
+
+                </svg>
+
+            </div>
+            <div class="info">container size: 500px x 500px </div>
+        </div>
+    </div>
+</body>
+
+</html>

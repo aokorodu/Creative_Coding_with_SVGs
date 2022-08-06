@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>creating elements with javascript</title>
+    <script src="../js/custom-button-component.js"></script>
+    <script src="../js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">creating elements with javascript </div>
+            <div class="subtitle">random circle generation</div>
+        </div>
+    </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+
+                <svg width="500" height="500" viewbox="0 0 500 500">
+                    <!--
+                    elements created using Javascript will be added as children of the svg element using "addChild()"
+                -->
+                </svg>
+
+            </div>
+            <div id="info_text" class="info">container size: 500px x 500px </div>
+            <custom-button id="redraw-button" val="0" label="redraw"></custom-button>
+        </div>
+
+</body>
+<script>
+    const svg = document.querySelector("svg");
+    const namespace = "http://www.w3.org/2000/svg";
+    const circ = document.createElementNS(namespace, "circle");
+    circ.setAttribute("cx", 250);
+    circ.setAttribute("cy", 250);
+    circ.setAttribute("r", 200);
+    circ.setAttribute("fill", "cornflowerblue");
+    circ.setAttribute("stroke", "blue");
+    circ.setAttribute("stroke-width", 20);
+
+    svg.appendChild(circ)
+
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<svg width="500" height="500" viewbox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+
+
+    <rect x="10" y="10" width="480" height="480" fill="none" stroke="#eaeaea" stroke-width="2" />
+    <circle cx="250" cy="120" r="60" fill="red" stroke="black" />
+    <circle id="my_circle" cx="250" cy="250" r="60" stroke="black" fill="white" />
+    <circle cx="250" cy="380" r="60" stroke="black" fill="blue" />
+    <rect 
+        x="50" y="200" width="100" height="100" 
+        fill="#f07070" 
+        stroke="black" 
+        stroke-width="10" 
+        onmouseover="this.setAttribute('stroke', 'green')"
+        onmouseout="this.setAttribute('stroke', 'black')" 
+        onmousedown="this.setAttribute('fill', 'white')"
+        onmouseup="this.setAttribute('fill', '#f07070')"/>
+    <rect x="350" y="200" width="100" height="100" 
+        fill="#f07070" 
+        stroke="black" 
+        stroke-width="10" 
+        onclick="clickHandler(event)" />
+    
+    <script type="text/JavaScript">
+        // <![CDATA[
+
+        function clickHandler(e){
+            console.log('click')
+        }
+        const circles = document.querySelectorAll("circle");
+
+        circles.forEach((circle)=>{
+            circle.setAttribute("fill", getColor());
+            circle.addEventListener("click", ()=>{
+                console.log('circle clicked')
+                circle.setAttribute("fill", getColor());
+            })
+            console.log('color')
+        })
+
+        function getColor() {
+            const h = Math.round(Math.random() * 360);
+            const s = 50 + Math.round(Math.random() * 50);
+            const l = 40 + Math.round(Math.random() * 50);
+            return `hsl(${h}, ${s}%, ${l}%)`
+        }
+    
+        
+        // ]]>
+    </script>
+</svg>

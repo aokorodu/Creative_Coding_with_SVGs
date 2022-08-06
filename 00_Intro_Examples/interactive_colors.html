@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interactive HSL Color</title>
+    <script src="../js/custom-slider-component.js"></script>
+    <script src="../js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">Interactive HSL Color</div>
+        </div>
+    </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+                <!--
+                    
+                -->
+                <svg width="500" height="500" viewBox="0 0 500 500">
+                    <rect x="0" y="0" width="500" height="500" fill="#c4c4c4"></rect>
+                    <g id="figure">
+                        <g id="Bottom/Standing/Sprint">
+                            <path id="Leg" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M206.204 214.384C208.157 240.939 333.983 319.12 334.718 321.313C335.044 322.288 321.989 353.106 295.552 413.767L306.552 418.025C347.101 353.781 366.334 318.236 364.251 311.39C361.269 301.589 328.727 269.348 266.624 214.667L206.204 214.384Z"
+                                fill="#B28B67" />
+                            <path id="Pant-Right" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M298.447 400.068L316.405 406.58C354.272 364.02 369.115 328.904 366.408 311.012C364.604 299.084 332.174 266.896 269.118 214.449L204.916 214.449C207.107 275.946 323.732 321.547 325.292 324.168C326.852 326.789 311.501 352.455 298.447 400.068Z"
+                                fill="#5C63AB" />
+                            <path id="Pant-Shade" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M298.447 400.068L316.405 406.58C354.272 364.02 369.115 328.904 366.408 311.012C364.604 299.084 332.174 266.896 269.118 214.449L204.916 214.449C207.107 275.946 323.732 321.547 325.292 324.168C326.852 326.789 311.501 352.455 298.447 400.068Z"
+                                fill="black" fill-opacity="0.2" />
+                            <g id="Accessories/Shoe/Flat-Sneaker">
+                                <path id="shoe" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M291.477 411.736C289.232 414.361 287.834 416.429 287.285 417.938C286.617 419.773 285.948 422.563 285.278 426.307C287.407 427.082 306.544 434.048 342.689 447.203C345.976 442.814 346.084 439.838 343.013 438.275C339.942 436.712 337.401 435.385 335.39 434.294L313.035 412.686C312.605 412.27 311.92 412.281 311.504 412.712C311.497 412.719 311.49 412.726 311.483 412.734L308.253 416.27C304.772 416.576 302.101 416.39 300.241 415.713C298.73 415.163 296.864 413.792 294.645 411.602L294.645 411.602C293.794 410.762 292.422 410.77 291.582 411.622C291.545 411.659 291.51 411.697 291.477 411.736Z"
+                                    fill="#ffffff" />
+                            </g>
+                            <path id="Leg_2" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M220.671 214.384L164.619 348.43L109.528 461.755H122.526L264.73 214.384H220.671Z"
+                                fill="#997659" />
+                            <g id="Accessories/Shoe/Flat-Sneaker_2">
+                                <path id="shoe_2" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M108.75 456.63C107.539 459.865 106.933 462.285 106.933 463.891C106.933 465.845 107.258 468.695 107.909 472.443C110.175 472.443 130.54 472.443 169.005 472.443C170.592 467.194 169.676 464.36 166.255 463.942C162.835 463.523 159.993 463.145 157.73 462.808L129.334 450.149C128.787 449.905 128.147 450.15 127.903 450.697C127.899 450.706 127.895 450.716 127.891 450.725L126.066 455.153C122.899 456.63 120.326 457.369 118.346 457.369C116.738 457.369 114.516 456.719 111.682 455.42L111.682 455.42C110.594 454.922 109.308 455.399 108.81 456.487C108.788 456.534 108.769 456.581 108.75 456.63Z"
+                                    fill="#ffffff" />
+                            </g>
+                            <path id="Pant-Left" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M114.503 438.213L143.384 443.608C165.715 410.905 259.17 276.809 269.416 214.384H205.121C170.902 259.511 135.789 404.968 114.503 438.213Z"
+                                fill="#5C63AB" />
+                        </g>
+                        <g id="Head/Front/Wavy">
+                            <g id="Head">
+                                <path id="Vector" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M240.724 83.945C237.286 77.1029 235.73 69.3804 238.207 61.7795C245.343 39.8791 275.431 52.5902 278.717 65.3608C282.002 78.1314 274.162 106.493 265.789 106.541C262.45 106.56 256.252 102.928 250.46 97.1654L247.263 128.187L222.038 121.897L240.724 83.945Z"
+                                    fill="#B28B67" />
+                            </g>
+                            <path id="hair" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M279.838 71.0068C279.952 69.486 279.745 67.7141 279.597 66.2113C279.405 64.2741 278.843 62.4306 278.162 60.6552C276.88 57.3128 275.132 54.1472 273.025 51.3566C269.178 46.2591 263.604 42.4825 257.39 41.7083C254.252 41.3174 251.009 41.7317 248.014 43.0209C245.309 44.1856 242.487 46.1895 239.497 45.6386C236.244 45.0391 234.006 41.5046 231.869 39.1333C229.459 36.4599 226.732 34.2699 223.484 32.8731C218.043 30.5336 212.242 31.1044 207.184 34.7417C201.801 38.6124 196.983 45.0558 198.093 52.2395C198.299 53.5749 198.698 54.7568 199.425 55.8351C200.092 56.824 201.199 57.9754 201.239 59.2998C201.282 60.7076 199.752 62.1289 199.028 63.2089C197.989 64.7563 197.04 66.4156 196.758 68.3087C196.296 71.4177 197.498 74.7954 199.033 77.2973C200.595 79.8433 202.85 81.6422 205.435 82.8567C207.161 83.6676 208.967 84.3279 210.846 84.6534C211.778 84.815 212.649 84.7644 213.587 84.7851C214.498 84.8052 214.924 85.1526 215.539 85.8042C218.397 88.8316 221.844 90.5867 225.852 91.2418C229.235 91.7945 233.254 91.9509 236.519 90.3741C240.145 88.6229 240.945 85.1607 241.156 81.3014C241.813 81.8557 243.828 82.5998 242.955 80.8255C242.61 80.1227 241.743 79.6555 241.199 79.1572C240.565 78.577 239.95 77.8778 239.542 77.0875C237.899 73.8964 241.547 69.1459 244.653 68.9874C249.267 68.7521 248.728 75.0032 251.402 77.3216C252.939 78.6546 255.085 77.8916 256.715 76.9726C258.899 75.7414 260.655 73.8271 262.256 71.8327C263.575 70.1903 264.842 68.5071 266.175 66.878C266.797 66.1173 268.816 64.0312 268.351 62.8795C271.574 63.0383 274.68 65.1566 276.912 67.4754C277.834 68.434 278.479 69.3981 278.761 70.7544C278.821 71.045 278.9 71.8842 279.234 72.0009C279.855 72.2184 279.81 71.3889 279.838 71.0068Z"
+                                fill="#191847" />
+                        </g>
+                        <g id="Body/Hoodie">
+                            <path id="Skin" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M309.522 205.007L343.629 230.854C352.955 233.534 360.729 236.801 366.95 240.655C368.412 242.027 370.159 244.786 364.008 244.207C357.858 243.628 351.362 243.295 350.476 245.37C349.59 247.446 353.273 250.01 351.506 252.801C350.328 254.661 345 249.852 335.522 238.374L301.557 223.66L309.522 205.007ZM176.861 203.563L199.493 204.047C184.734 248.694 176.774 272.381 175.612 275.109C172.998 281.245 178.137 290.75 180.317 295.848C172.873 299.008 173.873 286.841 164.479 290.992C155.906 294.781 149.312 301.802 139.591 295.598C138.395 294.835 137.12 292.019 140.357 289.892C148.421 284.594 160.071 275.278 161.677 272.173C163.867 267.939 168.929 245.069 176.861 203.563Z"
+                                fill="#B28B67" />
+                            <path id="Coat-Back" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M242.83 110.183L252.223 108.748C286.45 139.224 299.721 196.856 341.783 227.997L331.311 240.463C257.579 230.07 240.486 159.757 242.83 110.183Z"
+                                fill="#FF9B21" />
+                            <path id="Coat-Back-Shade" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M242.83 110.183L252.223 108.748C286.45 139.224 299.721 196.856 341.783 227.997L331.311 240.463C257.579 230.07 240.486 159.757 242.83 110.183Z"
+                                fill="black" fill-opacity="0.2" />
+                            <path id="Shirt" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M199.96 226.584C237.512 227.239 265.134 227.721 282.826 228.03C286.613 228.096 285.994 222.643 285.495 219.888C279.731 188.092 255.666 153.506 256.454 108.403L232.616 104.256C212.293 135.551 204.776 174.387 199.96 226.584Z"
+                                fill="#DDE3E9" />
+                            <path id="Coat-Front" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M202.228 134.836C198.773 133.782 196.065 131.418 194.102 127.744C185.639 111.905 188.945 103.324 198.331 100.648C207.717 97.9721 215.941 103.965 230.816 104.225C231.626 104.239 232.366 104.302 233.037 104.415L240.512 104.97C260.717 177.747 265.795 226.156 255.746 250.197L190.523 249.058C186.502 257.957 182.673 265.437 179.035 271.497L161.263 271.187C160.53 217.344 174.184 171.893 202.228 134.836Z"
+                                fill="#FF9B21" />
+                            <path id="Shade" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M205.375 212.122C207.129 229.236 210.246 241.689 214.728 249.481L190.524 249.058C195.214 238.678 200.165 226.366 205.375 212.122V212.122Z"
+                                fill="black" fill-opacity="0.1" />
+                        </g>
+                    </g>
+                </svg>
+
+            </div>
+            <div id="info_text" class="info"></div>
+            
+        </div>
+        <div class="section-holder">
+            <div class="slidecontainer">
+                <custom-slider id="coat_slider" minimum="0" maximum="360" step="1" val="0" label="coat color">
+                </custom-slider>
+                <custom-slider id="coat_saturation_slider" minimum="0" maximum="100" step="1" val="70"
+                    label="coat saturation"></custom-slider>
+                <custom-slider id="coat_luminosity_slider" minimum="0" maximum="100" step="1" val="50"
+                    label="coat luminosity"></custom-slider>
+                <div id="info_text" class="info"></div>
+                <custom-slider id="shirt_slider" minimum="0" maximum="360" step="1" val="60" label="shirt color">
+                </custom-slider>
+                <custom-slider id="shirt_saturation_slider" minimum="0" maximum="100" step="1" val="50"
+                    label="shirt saturation">
+                </custom-slider>
+                <custom-slider id="shirt_luminosity_slider" minimum="0" maximum="100" step="1" val="55"
+                    label="shirt luminosity">
+                </custom-slider>
+                <div id="info_text" class="info"></div>
+                <custom-slider id="pants_slider" minimum="0" maximum="360" step="1" val="120" label="pants color">
+                </custom-slider>
+                <custom-slider id="pants_saturation_slider" minimum="0" maximum="100" step="1" val="70"
+                    label="pants saturation">
+                </custom-slider>
+                <custom-slider id="pants_luminosity_slider" minimum="0" maximum="100" step="1" val="30"
+                    label="pants luminosity">
+                </custom-slider>
+            </div>
+        </div>
+
+</body>
+<script>
+
+    const svg = document.querySelector("svg");
+    const coatColorSlider = document.querySelector("#coat_slider");
+    const coatColorSaturationSlider = document.querySelector("#coat_saturation_slider");
+    const coatColorLuminositySlider = document.querySelector("#coat_luminosity_slider");
+
+    const shirtColorSlider = document.querySelector("#shirt_slider");
+    const shirtColorSaturationSlider = document.querySelector("#shirt_saturation_slider");
+    const shirtColorLuminositySlider = document.querySelector("#shirt_luminosity_slider");
+
+    const pantsColorSlider = document.querySelector("#pants_slider");
+    const pantsColorSaturationSlider = document.querySelector("#pants_saturation_slider");
+    const pantsColorLuminositySlider = document.querySelector("#pants_luminosity_slider");
+
+
+    const coatFront = document.querySelector("#Coat-Front");
+    const coatBack = document.querySelector("#Coat-Back");
+    const shirt = document.querySelector("#Shirt");
+    const pantsLeft = document.querySelector("#Pant-Left");
+    const pantsRight = document.querySelector("#Pant-Right");
+    const namespace = "http://www.w3.org/2000/svg";
+    const numBubbles = 300;
+    const bubbles = [];
+    const w = 1000;
+    const h = 1000;
+    console.log('w: ', w, ' h:', h);
+    //svg.setAttribute("viewBox", "0 0 500 500");
+
+    coatColorSlider.addEventListener("value", (e) => {
+        const currentColor = e.detail.value;
+        const currentSaturation = coatColorSaturationSlider.value;
+        const currentLuminosity = coatColorLuminositySlider.value
+        changeColor(coatFront, currentColor, currentSaturation, currentLuminosity);
+        changeColor(coatBack, currentColor, currentSaturation, currentLuminosity);
+    })
+
+    coatColorSaturationSlider.addEventListener("value", (e) => {
+        const currentColor = coatColorSlider.value;
+        const currentSaturation = e.detail.value;
+        const currentLuminosity = coatColorLuminositySlider.value
+        changeColor(coatFront, currentColor, currentSaturation, currentLuminosity);
+        changeColor(coatBack, currentColor, currentSaturation, currentLuminosity);
+    })
+
+    coatColorLuminositySlider.addEventListener("value", (e) => {
+        const currentColor = coatColorSlider.value;
+        const currentSaturation = coatColorSaturationSlider.value;
+        const currentLuminosity = e.detail.value;
+        changeColor(coatFront, currentColor, currentSaturation, currentLuminosity);
+        changeColor(coatBack, currentColor, currentSaturation, currentLuminosity);
+    })
+    //
+
+
+
+    shirtColorSlider.addEventListener("value", (e) => {
+        const currentColor = e.detail.value;
+        const currentSaturation = shirtColorSaturationSlider.value;
+        const currentLuminosity = shirtColorLuminositySlider.value
+        changeColor(shirt, currentColor, currentSaturation, currentLuminosity);
+    })
+
+    shirtColorSaturationSlider.addEventListener("value", (e) => {
+        const currentColor = shirtColorSlider.value;
+        const currentSaturation = e.detail.value;
+        const currentLuminosity = shirtColorLuminositySlider.value
+        changeColor(shirt, currentColor, currentSaturation, currentLuminosity);
+    })
+
+    shirtColorLuminositySlider.addEventListener("value", (e) => {
+        const currentColor = shirtColorSlider.value;
+        const currentSaturation = shirtColorSaturationSlider.value;
+        const currentLuminosity = e.detail.value;
+        changeColor(shirt, currentColor, currentSaturation, currentLuminosity);
+    })
+
+
+    //
+
+
+    pantsColorSlider.addEventListener("value", (e) => {
+        const currentColor = e.detail.value;
+        const currentSaturation = pantsColorSaturationSlider.value;
+        const currentLuminosity = pantsColorLuminositySlider.value
+        changeColor(pantsLeft, currentColor, currentSaturation, currentLuminosity);
+        changeColor(pantsRight, currentColor, currentSaturation, currentLuminosity);
+    })
+
+    pantsColorSaturationSlider.addEventListener("value", (e) => {
+        const currentColor = pantsColorSlider.value;
+        const currentSaturation = e.detail.value;
+        const currentLuminosity = pantsColorLuminositySlider.value
+        changeColor(pantsLeft, currentColor, currentSaturation, currentLuminosity);
+        changeColor(pantsRight, currentColor, currentSaturation, currentLuminosity);
+    })
+
+    pantsColorLuminositySlider.addEventListener("value", (e) => {
+        const currentColor = pantsColorSlider.value;
+        const currentSaturation = pantsColorSaturationSlider.value;
+        const currentLuminosity = e.detail.value;
+        changeColor(pantsLeft, currentColor, currentSaturation, currentLuminosity);
+        changeColor(pantsRight, currentColor, currentSaturation, currentLuminosity);
+    })
+
+
+    function changeColor(item, color, saturation, luminosity) {
+        const str = `hsl(${color},${saturation}%, ${luminosity}%)`;
+        item.setAttribute("fill", str)
+    }
+
+    changeColor(coatFront, coatColorSlider.value, coatColorSaturationSlider.value, coatColorLuminositySlider.value);
+    changeColor(coatBack, coatColorSlider.value, coatColorSaturationSlider.value, coatColorLuminositySlider.value);
+    changeColor(shirt, shirtColorSlider.value, shirtColorSaturationSlider.value, shirtColorLuminositySlider.value);
+    changeColor(pantsLeft, pantsColorSlider.value, pantsColorSaturationSlider.value, pantsColorLuminositySlider.value);
+    changeColor(pantsRight, pantsColorSlider.value, pantsColorSaturationSlider.value, pantsColorLuminositySlider.value);
+
+
+
+
+</script>
+
+</html>

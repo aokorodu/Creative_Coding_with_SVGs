@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>getAttribute</title>
+    <script src="../js/custom-slider-component.js"></script>
+   <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">getAttribute </div>
+            <div class="subtitle">using javascript to dynamically change svg element attribute values</div>
+        </div>
+    </div>
+    
+    <div class="content-holder">
+
+
+        <div class="section-holder">
+
+
+            <div class="svg-holder">
+                <!--
+                    
+                -->
+                <svg width="500" height="500" viewbox="0 0 500 500">
+                    <circle id="my_circle" cx="250" cy="250" r="150" stroke="black" stroke-opacity="1" stroke-width="5"
+                        fill="purple"></circle>
+                </svg>
+    
+            </div>
+            <div class="description">
+                In this interactive example, when you click the circle, we use <em>"getAttribute"</em> to find out the current fill collor, and then we toggle the color accordingly using <em>"setAttribute"</em>.
+            </div>
+        </div>
+       
+    </div>
+
+</body>
+<script>
+    let my_circle = document.getElementById("my_circle");
+    my_circle.addEventListener("click", toggleColor)
+
+    function toggleColor(){
+        let color = my_circle.getAttribute("fill");
+
+        color == "purple" ? my_circle.setAttribute("fill", "green") : my_circle.setAttribute("fill", "purple");
+        
+    }
+
+
+</script>
+
+</html>

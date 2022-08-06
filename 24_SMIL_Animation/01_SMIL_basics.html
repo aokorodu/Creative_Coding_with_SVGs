@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>wave experiment</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">SMIL animation</div>
+            <!-- <div class="subtitle">two control points</div> -->
+        </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+
+                <svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- basic animation, starts after 2 second delay-->
+                    <circle cx="50" cy="250" r="20" fill="#93C17E">
+                        <animate 
+                            attributeName="cx" 
+                            from="50" 
+                            to="400" 
+                            dur="2s" 
+                            repeatCount="3" 
+                            fill="freeze"
+                            begin="2" />
+                    </circle>
+
+                    <!-- begin with click-->
+                    <!-- <circle cx="50" cy="250" r="20" fill="#93C17E">
+                        <animate 
+                            attributeName="cx" 
+                            from="50" 
+                            to="400" 
+                            dur="2s" 
+                            repeatCount="3" 
+                            fill="freeze"
+                            begin="click" />
+                    </circle> -->
+                    
+                    <!-- simultaneous animations -->
+                    <!-- <circle cx="50" cy="250" r="20" fill="#93C17E">
+                        <animate 
+                            id="slide" 
+                            attributeName="cx" 
+                            values="50; 450; 250" 
+                            dur="2s" 
+                            begin="0"
+                            fill="freeze" />
+                        <animate 
+                            id="grow" 
+                            attributeName="r" 
+                            values="20; 100" 
+                            dur="2s"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="fill" 
+                            values="#93C17E; #ff00ff; #009900" 
+                            dur="4s" 
+                            fill="freeze" />
+                    </circle> -->
+
+                    <!-- sequenced animations -->
+                    <!-- <circle cx="50" cy="250" r="20" fill="#93C17E">
+                        <animate 
+                            id="slide" 
+                            attributeName="cx" 
+                            values="50; 450; 250" 
+                            dur="2s" 
+                            begin="0"
+                            fill="freeze" />
+                        <animate 
+                            id="grow" 
+                            attributeName="r" 
+                            values="20; 100" 
+                            dur="2s" 
+                            begin="slide.end + 500ms"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="fill" 
+                            values="#93C17E; #ff00ff; #009900" 
+                            dur="4s" 
+                            begin="grow.begin" 
+                            fill="freeze" />
+                    </circle> -->
+
+                    <!-- <g>
+                        <circle id="first-circle" cx="50" cy="250" r="20" fill="#93C17E" stroke="none">
+                            <animate 
+                                attributeName="cx" 
+                                values="50; 250; 450" 
+                                dur="2s" 
+                                calcMode="spline"
+                                keyTimes="0; .8; 1" 
+                                keySplines="0 0 .5 1; 0 0 .5 1" 
+                                repeatCount="indefinite" />
+                        </circle>
+                    </g> -->
+
+                    <!-- <g>
+                        <circle id="first-circle" cx="250" cy="600" r="90" fill="#93C17E" fill-opacity=".6" stroke="none">
+                            <animate 
+                                attributeName="cy" 
+                                values="600; 250"
+                                begin=".3s" dur="2s" 
+                                fill="freeze" 
+                                calcMode="spline" 
+                                keyTimes="0; 1"
+                                keySplines="0 0 .5 1" />
+                        </circle>
+                    </g> -->
+
+                    <!-- here's an example where we animate an object based on it's id -->
+                    <!-- <g>
+                        <rect x="0" y="0" width="500" height="500" stroke="none" fill="#93C17E" />
+                        <circle id="first-circle" cx="250" cy="600" r="90" fill="white" fill-opacity=".6" stroke="none">
+                        </circle>
+                    </g>
+                    <animate 
+                        id="first_animation" 
+                        href="#first-circle" 
+                        attributeName="cy" 
+                        values="600; 250"
+                        fill="freeze" 
+                        begin=".3s" 
+                        dur="2s" 
+                        fill="freeze" 
+                        calcMode="spline" 
+                        keyTimes="0; 1"
+                        keySplines="0 0 .5 1" /> -->
+                </svg>
+            </div>
+            <div id="info_text" class="info"></div>
+        </div>
+        <div class="section-holder">
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

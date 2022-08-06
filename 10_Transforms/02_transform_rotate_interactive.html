@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>transform rotate interactive</title>
+    <script src="../js/custom-slider-component.js"></script>
+    <script src="../js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">transform </div>
+            <div class="subtitle">rotate interactive</div>
+        </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div class="svg-holder">
+               
+                <svg width="500" height="500" viewbox="0 0 500 500">
+                    <defs>
+                        <g id="box">
+                            <rect x="200" y="200" width="100" height="100" fill="cornflowerblue" />
+                            <line id="box-line" x1="0" y1="0" x2="200" y2="200" stroke="black"></line>
+                            <circle id="center-point" cx="0" cy="0" r="4" fill="black"></circle>
+                        </g>
+                    </defs>
+
+                    <use id="shadow" href="#box" opacity=".2"></use>
+                    <!-- the order of the transforms matters-->
+                    <use id="rotation-box" href="#box" transform="rotate(0)"></use>
+
+                    
+
+                </svg>
+
+            </div>
+            <div class="info">container size: 500px x 500px </div>
+            <div class="section-holder">
+                <div class="slidecontainer">
+                    <custom-slider id="rotation-angle-slider" minimum="-180" maximum="180" val="0" label="rotation angle" step=1>
+                    </custom-slider>
+
+                    <custom-slider id="rotation-x-slider" minimum="0" maximum="500" val="0" label="rotation x" step=1>
+                    </custom-slider>
+
+                    <custom-slider id="rotation-y-slider" minimum="0" maximum="500" val="0" label="rotation y" step=1>
+                    </custom-slider>
+                </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    let rotationAngle = 0;
+    let rotationX = 0;
+    let rotationY = 0;
+    const centerPoint = document.querySelector("#center-point");
+    const boxLine = document.querySelector("#box-line");
+    const rotationBox = document.querySelector("#rotation-box");
+    const rotationXlider = document.querySelector("#rotation-x-slider");
+    const rotationYlider = document.querySelector("#rotation-y-slider");
+    const rotationAngleSlider = document.querySelector("#rotation-angle-slider");
+
+
+    rotationXlider.addEventListener("value", xHandler);
+    rotationYlider.addEventListener("value", yHandler);
+    rotationAngleSlider.addEventListener("value", rotationHandler);
+
+    //updateBoxLineX(100);
+
+    function rotationHandler(e){
+        updateRotateRotationAngle(e.detail.value);
+        updateTransformString()
+    }
+
+    function updateRotateRotationAngle(newAngle){
+        rotationAngle = newAngle;
+    }
+
+    function updateTransformString(){
+        
+        const str = `rotate(${rotationAngle}, ${rotationX}, ${rotationY})`;
+        console.log(str)
+        rotationBox.setAttribute("transform", str)
+    }
+
+    function updateLine(){
+        centerPoint.setAttribute("cx", rotationX);
+        centerPoint.setAttribute("cy", rotationY);
+        boxLine.setAttribute("x1", rotationX);
+        boxLine.setAttribute("y1", rotationY);
+    }
+
+    function xHandler(e){
+        updateBoxLineX(e.detail.value)
+    }
+
+    function updateBoxLineX(newX){
+        rotationX = newX;
+        updateLine();
+        updateTransformString()
+    }
+
+    function yHandler(e){
+        updateBoxLineY(e.detail.value)
+    }
+
+    function updateBoxLineY(newY){
+        rotationY = newY;
+        updateLine();
+        updateTransformString()
+    }
+
+</script>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>preserveAspectRatio</title>
+    <script src="../js/custom-slider-component.js"></script>
+    <script src="../js/custom-button-component.js"></script>
+    <script src="../js/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="../js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<style>
+    .holder {}
+</style>
+
+<body>
+    <div class="title-holder">
+        <div class="info-holder">
+            <div class="title">preserveAspectRatio</div>
+        </div>
+    </div>
+    </div>
+    <div class="content-holder">
+        <div class="section-holder">
+            <div>
+                <svg width="250" height="500" viewbox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+
+                    <g id="aspect-ratio-image">
+                        <rect width="500" height="500" fill="#0091B0" />
+                        <path
+                            d="M175.475 186.533C174.225 169.755 155.925 159.873 140.825 167.319C124.425 175.427 104.312 194.004 100.15 236.606C92.8749 310.915 197.862 308.404 197.862 308.404L201.975 295.311C201.975 295.311 133.3 280.657 134.562 250.336C135.975 216.429 177.45 213.881 175.475 186.533Z"
+                            fill="#68E1FD" />
+                        <path opacity="0.46"
+                            d="M175.475 186.533C174.225 169.755 155.925 159.873 140.825 167.319C124.425 175.427 104.312 194.004 100.15 236.606C92.8749 310.915 197.862 308.404 197.862 308.404L201.975 295.311C201.975 295.311 133.3 280.657 134.562 250.336C135.975 216.429 177.45 213.881 175.475 186.533Z"
+                            fill="white" />
+                        <path opacity="0.45"
+                            d="M250 394.007C365.98 394.007 460 383.765 460 371.132C460 358.498 365.98 348.257 250 348.257C134.02 348.257 40 358.498 40 371.132C40 383.765 134.02 394.007 250 394.007Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M88.3755 358.989C88.3755 358.989 90.538 364.873 95.8755 365.235C101.213 365.598 102.625 370.845 97.8505 372.231C93.0755 373.618 80.688 367.571 80.688 367.571L80.9755 359.888L88.3755 358.989Z"
+                            fill="#68E1FD" />
+                        <path
+                            d="M139.875 358.989C139.875 358.989 142.038 364.873 147.375 365.235C152.713 365.598 154.138 370.845 149.363 372.231C144.588 373.618 132.188 367.571 132.188 367.571L132.475 359.888L139.875 358.989Z"
+                            fill="#68E1FD" />
+                        <path
+                            d="M204.35 121.919C204.35 121.919 199.838 129.939 195.113 134.1C194.654 134.501 194.121 134.809 193.543 135.004C192.966 135.2 192.355 135.279 191.747 135.239C191.139 135.198 190.544 135.038 189.998 134.767C189.451 134.497 188.964 134.121 188.563 133.662C186.5 131.251 184.413 127.416 186.313 122.806L188.575 114.623C189.198 113.024 190.302 111.658 191.736 110.714C193.169 109.77 194.86 109.293 196.575 109.351C202.975 109.238 207.363 117.159 204.35 121.919Z"
+                            fill="#F4A28C" />
+                        <path d="M186.588 117.409L163.913 137.335L175.788 149.041L187.225 130.327L186.588 117.409Z"
+                            fill="#F4A28C" />
+                        <path
+                            d="M202.25 120.944C199.84 119.422 197.613 117.628 195.613 115.597C195.584 117.095 195.118 118.552 194.272 119.788C193.426 121.024 192.236 121.986 190.85 122.556C189.517 123.134 188.023 123.229 186.627 122.826C185.231 122.422 184.019 121.545 183.2 120.345L190.013 110.663C190.947 109.244 192.248 108.105 193.777 107.366C195.307 106.627 197.008 106.316 198.7 106.465C200.163 106.576 201.617 106.789 203.05 107.102C206.638 107.889 209.475 112.587 213.288 112.412C213.668 112.404 214.043 112.494 214.378 112.673C214.714 112.851 214.998 113.113 215.203 113.432C215.409 113.751 215.529 114.118 215.553 114.497C215.576 114.876 215.502 115.255 215.338 115.597C213.75 118.871 210.025 123.181 204.888 122.056C203.952 121.836 203.061 121.46 202.25 120.944Z"
+                            fill="#24285B" />
+                        <path
+                            d="M191.825 122.893C191.825 122.893 193.763 119.932 191.413 118.646C189.063 117.359 186.225 121.644 188.913 124.08L191.825 122.893Z"
+                            fill="#F4A28C" />
+                        <path
+                            d="M201.2 126.841L201.312 131.226C201.319 131.475 201.263 131.722 201.148 131.943C201.034 132.165 200.865 132.353 200.658 132.492C200.451 132.63 200.212 132.714 199.963 132.735C199.715 132.757 199.465 132.714 199.237 132.613L195.962 131.176L201.2 126.841Z"
+                            fill="#F4A28C" />
+                        <path opacity="0.31"
+                            d="M186.9 130.864C185.717 129.194 185.012 127.233 184.862 125.192C184.862 125.192 179.512 129.077 183.612 136.224L186.9 130.864Z"
+                            fill="#CE8172" />
+                        <path
+                            d="M381.2 333.115C381.2 333.115 386.825 327.181 393.075 333.115C399.325 339.05 394.638 344.359 394.638 344.359C394.638 344.359 402.45 339.737 405.263 345.609C405.905 346.927 406.169 348.397 406.025 349.856C405.976 350.584 406.084 351.313 406.343 351.995C406.602 352.676 407.005 353.294 407.525 353.805C408.045 354.317 408.67 354.71 409.356 354.957C410.042 355.205 410.773 355.302 411.5 355.241C417.75 354.878 425.25 356.215 426.5 364.323L400.25 362.762L379.075 347.395L381.2 333.115Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M366.5 360.675C366.5 360.675 386.75 307.779 376.338 227.411C376.338 227.411 401.663 302.145 376.038 363.586L366.5 360.675Z"
+                            fill="#A5A5A5" />
+                        <path
+                            d="M136.638 129.14C136.638 129.14 181.325 135.224 213.813 170.117C246.3 205.011 134.1 276.621 134.1 276.621L75.3502 256.47C75.3502 256.47 71.4502 114.048 136.638 129.14Z"
+                            fill="#68E1FD" />
+                        <path
+                            d="M205.662 294.437L205.375 294.312L198.2 290.564C193.329 287.867 189.707 283.372 188.108 278.042C186.509 272.711 187.06 266.966 189.642 262.036C192.225 257.106 196.634 253.38 201.929 251.656C207.223 249.932 212.982 250.346 217.975 252.809L225.15 256.557C225.386 256.68 225.596 256.849 225.767 257.053C225.939 257.257 226.068 257.493 226.148 257.747C226.228 258.001 226.257 258.268 226.234 258.534C226.211 258.799 226.135 259.057 226.012 259.293C225.889 259.53 225.721 259.739 225.517 259.911C225.312 260.082 225.076 260.211 224.822 260.291C224.568 260.371 224.301 260.4 224.035 260.377C223.77 260.354 223.511 260.278 223.275 260.155L216.1 256.407C212.042 254.285 207.307 253.861 202.936 255.228C198.565 256.595 194.917 259.642 192.794 263.697C190.67 267.753 190.246 272.485 191.614 276.854C192.981 281.222 196.03 284.868 200.087 286.991L207.262 290.739C207.76 290.951 208.152 291.351 208.354 291.853C208.555 292.354 208.55 292.915 208.337 293.412C208.125 293.909 207.724 294.302 207.222 294.503C206.721 294.705 206.16 294.699 205.662 294.487V294.437Z"
+                            fill="#FFD200" />
+                        <path opacity="0.08"
+                            d="M144.45 149.254C144.45 149.254 159.85 180.487 134.263 208.371C108.675 236.256 156.513 260.918 156.513 260.918L134.1 276.621L75.3501 256.47C75.3501 256.47 76.2001 229.285 77.0876 216.217C77.9751 203.149 144.45 149.254 144.45 149.254Z"
+                            fill="black" />
+                        <path opacity="0.6"
+                            d="M205.662 294.437L205.375 294.312L198.2 290.564C193.329 287.867 189.707 283.372 188.108 278.042C186.509 272.711 187.06 266.966 189.642 262.036C192.225 257.106 196.634 253.38 201.929 251.656C207.223 249.932 212.982 250.346 217.975 252.809L225.15 256.557C225.386 256.68 225.596 256.849 225.767 257.053C225.939 257.257 226.068 257.493 226.148 257.747C226.228 258.001 226.257 258.268 226.234 258.534C226.211 258.799 226.135 259.057 226.012 259.293C225.889 259.53 225.721 259.739 225.517 259.911C225.312 260.082 225.076 260.211 224.822 260.291C224.568 260.371 224.301 260.4 224.035 260.377C223.77 260.354 223.511 260.278 223.275 260.155L216.1 256.407C212.042 254.285 207.307 253.861 202.936 255.228C198.565 256.595 194.917 259.642 192.794 263.697C190.67 267.753 190.246 272.485 191.614 276.854C192.981 281.222 196.03 284.868 200.087 286.991L207.262 290.739C207.76 290.951 208.152 291.351 208.354 291.853C208.555 292.354 208.55 292.915 208.337 293.412C208.125 293.909 207.724 294.302 207.222 294.503C206.721 294.705 206.16 294.699 205.662 294.487V294.437Z"
+                            fill="white" />
+                        <path
+                            d="M144.45 149.254C141.013 132.788 121.513 125.429 107.538 134.837C92.3627 145.044 74.9502 166.145 76.4627 208.909C79.1752 283.53 182.888 267.064 182.888 267.064L185.213 253.534C185.213 253.534 115.213 248.15 112.413 217.954C109.288 184.147 150.05 176.089 144.45 149.254Z"
+                            fill="#68E1FD" />
+                        <path opacity="0.46"
+                            d="M144.45 149.254C141.013 132.788 121.513 125.429 107.538 134.837C92.3627 145.044 74.9502 166.145 76.4627 208.909C79.1752 283.53 182.888 267.064 182.888 267.064L185.213 253.534C185.213 253.534 115.213 248.15 112.413 217.954C109.288 184.147 150.05 176.089 144.45 149.254Z"
+                            fill="white" />
+                        <path d="M225.025 243.664L189.738 294.699L239.038 320.497L256.813 260.293L225.025 243.664Z"
+                            fill="#FFD200" />
+                        <path
+                            d="M229.95 301.957L281.863 273.373L294.563 280.02C294.95 280.234 295.256 280.571 295.431 280.977C295.606 281.384 295.642 281.837 295.532 282.266C295.422 282.694 295.172 283.074 294.823 283.346C294.473 283.618 294.043 283.766 293.6 283.767L287.825 283.655C286.246 283.643 284.695 284.076 283.35 284.904L234.163 314.388L229.95 301.957Z"
+                            fill="#FFD200" />
+                        <path
+                            d="M184.525 257.532C184.525 257.532 196.925 253.147 200.775 260.33C204.625 267.514 195.937 270.2 182.9 267.064L184.525 257.532Z"
+                            fill="#F4A28C" />
+                        <path d="M225.025 243.664L246.125 244.364L256.812 260.293L225.025 243.664Z" fill="#FFD200" />
+                        <path opacity="0.17" d="M225.025 243.664L246.125 244.364L256.812 260.293L225.025 243.664Z"
+                            fill="black" />
+                        <path
+                            d="M198.488 306.43C198.488 306.43 209.925 312.077 214.35 305.056L200.4 300.321L198.488 306.43Z"
+                            fill="#F4A28C" />
+                        <g opacity="0.48">
+                            <path opacity="0.48" d="M295.575 276.222C295.575 276.222 296.213 276.009 297.375 275.709"
+                                stroke="#C9C9C9" stroke-width="2.03" stroke-linecap="round" stroke-linejoin="round" />
+                            <path opacity="0.48" d="M303.138 274.61C316.713 272.786 344.963 273.96 358.138 311.24"
+                                fill="none" stroke="#C9C9C9" stroke-width="2.03" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-dasharray="2.86 4.77" />
+                            <path opacity="0.48" d="M359.075 314.026C359.263 314.613 359.45 315.2 359.625 315.812"
+                                stroke="#C9C9C9" stroke-width="2.03" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <path
+                            d="M75.2876 256.47L78.1376 360.25H90.3126L97.7126 302.782C98.3302 298.005 100.326 293.511 103.455 289.849C106.585 286.186 110.714 283.513 115.338 282.156L134.088 276.634L75.2876 256.47Z"
+                            fill="#24285B" />
+                        <path d="M134.1 276.621L142.213 360.25H130.45L104.7 282.081L134.1 276.621Z" fill="#24285B" />
+                        <path
+                            d="M386.1 316.025C386.1 316.025 389.85 296.036 419.413 297.472C419.413 297.472 413.213 327.681 386.1 316.025Z"
+                            fill="#C9C9C9" />
+                        <path
+                            d="M371.2 223.725C371.2 223.725 356.563 203.736 366.475 191.243C376.388 178.75 414.363 190.431 387.063 224.513L371.2 223.725Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M383.325 221.089C383.325 221.089 396.85 200.388 412.075 205.261C427.3 210.133 429.65 249.786 388.138 236.219L383.325 221.089Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M390.888 233.57C390.888 233.57 415.363 229.96 421.813 244.577C428.263 259.193 400.138 287.266 382.75 247.213L390.888 233.57Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M386.925 245.888C386.925 245.888 403.025 264.628 394.088 277.908C385.15 291.188 346.4 282.306 371.038 246.276L386.925 245.888Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M374.125 222.326C374.125 222.326 364.412 199.589 348.562 201.75C332.712 203.911 323.5 242.528 366.75 236.394L374.125 222.326Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M364.412 233.37C364.412 233.37 340.487 230.747 335.062 245.339C329.637 259.931 358.512 286.416 373.087 246.45L364.412 233.37Z"
+                            fill="#E6E6E6" />
+                        <path
+                            d="M379.15 252.56C388.863 252.56 396.737 244.69 396.737 234.982C396.737 225.274 388.863 217.404 379.15 217.404C369.437 217.404 361.562 225.274 361.562 234.982C361.562 244.69 369.437 252.56 379.15 252.56Z"
+                            fill="#C9C9C9" />
+                        <path opacity="0.43"
+                            d="M374.125 239.292C378.965 239.292 382.888 235.371 382.888 230.534C382.888 225.697 378.965 221.777 374.125 221.777C369.286 221.777 365.363 225.697 365.363 230.534C365.363 235.371 369.286 239.292 374.125 239.292Z"
+                            fill="#A5A5A5" />
+                        <path opacity="0.43"
+                            d="M371 231.834C373.016 231.834 374.65 230.2 374.65 228.186C374.65 226.171 373.016 224.538 371 224.538C368.984 224.538 367.35 226.171 367.35 228.186C367.35 230.2 368.984 231.834 371 231.834Z"
+                            fill="#A5A5A5" />
+                        <path
+                            d="M324.588 363.574C324.588 363.574 319.588 356.615 327.713 350.456C335.838 344.297 340.513 357.952 347.713 348.732C352.088 343.11 346.613 341.536 352.713 331.716C355.525 327.181 363.025 322.971 370.213 330.467C372.409 332.67 374.064 335.351 375.05 338.3C375.185 338.718 375.414 339.099 375.719 339.413C376.025 339.728 376.4 339.968 376.813 340.114C377.227 340.26 377.669 340.309 378.105 340.257C378.541 340.204 378.958 340.052 379.325 339.812C381.238 338.562 383.913 338.15 387.513 340.299C388.83 340.963 389.952 341.956 390.772 343.182C391.591 344.408 392.079 345.825 392.188 347.295C392.235 348.916 392.901 350.457 394.05 351.602C395.198 352.748 396.741 353.41 398.363 353.454C404.8 353.454 412.713 355.241 412.713 363.574H324.588Z"
+                            fill="#C9C9C9" />
+
+                    </g>
+                </svg>
+
+            </div>
+
+        </div>
+        <div class="section-holder">
+            <div id="info_text" class="info">preserveAspectRatio="xMidYMid meet"</div>
+            <div class="slidecontainer">
+                <div class="radio-container">
+                    <div class="radio-label">x</div>
+                    <div class="radio-group-container">
+                        <label class="radio-button-container">xMin
+                            <input type="radio" value="xMin" name="xAlignment">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-button-container">xMid
+                            <input type="radio" name="xAlignment" value="xMid" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-button-container">xMax
+                            <input type="radio" name="xAlignment" value="xMax">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="radio-container">
+                    <div class="radio-label">y</div>
+                    <div class="radio-group-container">
+                        <label class="radio-button-container">yMin
+                            <input type="radio" name="yAlignment" value="YMin">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-button-container">yMid
+                            <input type="radio" name="yAlignment" value="YMid" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-button-container">yMax
+                            <input type="radio" name="yAlignment" value="YMax">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="radio-container">
+                    <div class="radio-label">meet/slice</div>
+                    <div class="radio-group-container">
+                        <label class="radio-button-container">meet
+                            <input type="radio" value="meet" name="meet-slice" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-button-container">slice
+                            <input type="radio" name="meet-slice" value="slice">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="radio-container">
+                <div class="radio-label">viewport dimensions</div>
+                <div class="radio-group-container">
+                    <label class="radio-button-container">250x250
+                        <input type="radio" value="small-square" name="containerDimensions" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-button-container">250x500
+                        <input type="radio" value="portrait" name="containerDimensions" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-button-container">500x250
+                        <input type="radio" name="containerDimensions" value="landscape">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-button-container">500x500
+                        <input type="radio" name="containerDimensions" value="square">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+</body>
+<script>
+    let xAlignmentValue = "xMid";
+    let yAlignmentValue = "YMid";
+    let meetSliceValue = "meet";
+    let containerDimensionsValue = "portrait"
+
+    const svg = document.querySelector("svg");
+    const infoText = document.querySelector('#info_text');
+    //const svgHolder = document.querySelector("#svg-holder");
+
+    const xAlignmentRadios = document.querySelectorAll('input[type=radio][name="xAlignment"]');
+    for (const radio of xAlignmentRadios) {
+        radio.addEventListener('change', () => {
+            console.log(radio.value);
+            xAlignmentValue = radio.value;
+            updateAspectRatioSettings();
+        })
+    }
+
+    const yAlignmentRadios = document.querySelectorAll('input[type=radio][name="yAlignment"]');
+    for (const radio of yAlignmentRadios) {
+        radio.addEventListener('change', () => {
+            console.log(radio.value);
+            yAlignmentValue = radio.value;
+            updateAspectRatioSettings();
+        })
+    }
+
+    const meetSlice = document.querySelectorAll('input[type=radio][name="meet-slice"]');
+    for (const radio of meetSlice) {
+        radio.addEventListener('change', () => {
+            console.log(radio.value);
+            meetSliceValue = radio.value;
+            updateAspectRatioSettings();
+        })
+    }
+
+    const containerDimensionsRadios = document.querySelectorAll('input[type=radio][name="containerDimensions"]');
+    for (const radio of containerDimensionsRadios) {
+        radio.addEventListener('change', () => {
+            console.log(radio.value);
+            containerDimensionsValue = radio.value;
+            updateContainerDimensionsSettings();
+        })
+    }
+
+    const updateContainerDimensionsSettings = () => {
+        console.log('current dimensions: ', containerDimensionsValue);
+        if (containerDimensionsValue == "portrait") {
+            svg.setAttribute("width", "250");
+            svg.setAttribute("height", "500");
+            // svgHolder.classList.remove("svg-holder");
+            // svgHolder.classList.remove("svg-holder-fat");
+            // svgHolder.classList.add("svg-holder-slim");
+        } else if (containerDimensionsValue == "landscape") {
+            svg.setAttribute("width", "500");
+            svg.setAttribute("height", "250");
+            // svgHolder.classList.remove("svg-holder");
+            // svgHolder.classList.remove("svg-holder-slim");
+            // svgHolder.classList.add("svg-holder-fat");
+        } else if (containerDimensionsValue == "square") {
+            console.log('set square large')
+            svg.setAttribute("width", "500");
+            svg.setAttribute("height", "500");
+            // svgHolder.classList.remove("svg-holder-slim");
+            // svgHolder.classList.remove("svg-holder-fat");
+            // svgHolder.classList.remove("svg-holder-small");
+            // svgHolder.classList.add("svg-holder");
+        } else {
+            console.log('set square small')
+            svg.setAttribute("width", "250");
+            svg.setAttribute("height", "250");
+            // svgHolder.classList.remove("svg-holder-slim");
+            // svgHolder.classList.remove("svg-holder-fat");
+            // svgHolder.classList.add("svg-holder-small");
+        }
+
+    }
+
+    const updateAspectRatioSettings = () => {
+        const str = `${xAlignmentValue}${yAlignmentValue} ${meetSliceValue}`;
+        svg.setAttribute("preserveAspectRatio", str)
+        infoText.innerText = `preserveAspectRatio="${str}"`;
+    }
+
+
+
+</script>
+
+</html>
