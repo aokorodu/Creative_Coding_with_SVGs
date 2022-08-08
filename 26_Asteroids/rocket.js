@@ -5,6 +5,7 @@ class Rocket {
     this.w = svgWidth;
     this.h = svgHeight;
     this.spinSpeed = 0;
+    this.r = 30;
 
     this.position = {
       x: x,
@@ -22,11 +23,11 @@ class Rocket {
     }
 
     this.angle = 0;
+    this.blowedUp = false;
   }
 
   spin(num) {
     this.spinSpeed = num;
-    console.log('angle: ', this.angle)
   }
 
   fire() {
@@ -62,6 +63,8 @@ class Rocket {
   }
 
   update() {
+    if(this.blowedUp) return;
+
     this.angle += this.spinSpeed;
 
     this.velocity.x += this.acceleration.x;
@@ -84,6 +87,15 @@ class Rocket {
     this.resetAcceleration();
 
     
+  }
+
+  blowUp() {
+    this.blowedUp = true;
+    this.container.remove();
+  }
+
+  isBlowedUp(){
+    return this.blowedUp;
   }
 
   draw(){

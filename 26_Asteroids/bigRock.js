@@ -26,10 +26,21 @@ class BigRock {
   }
 
   init() {
-    this.graphic = document.createElementNS(namespace, "use");
-    this.graphic.setAttribute("href", `#${this.defID}`)
-    this.graphic.setAttribute("x", this.position.x);
-    this.graphic.setAttribute("y", this.position.y);
+    const totalPoints = 10 + Math.round(Math.random() * 10);
+    const angleIncrement = (Math.PI * 2) / totalPoints;
+    const ptArray = [];
+    for (let i = 0; i < totalPoints; i++) {
+      const currentAngle = i * angleIncrement;
+      const radius = this.r/2 + (Math.random() * 1 * this.r/ 2);
+      const x = Math.cos(currentAngle) * radius;
+      const y = Math.sin(currentAngle) * radius;
+      ptArray.push(`${x} ${y}`);
+    }
+
+    this.graphic = document.createElementNS(namespace, "polygon");
+    this.graphic.setAttribute("points", ptArray.toLocaleString());
+    this.graphic.setAttribute("stroke", "white");
+    this.graphic.setAttribute("transform", `translate(${this.position.x} ${this.position.y})`);
 
   }
 
@@ -64,8 +75,10 @@ class BigRock {
   }
 
   draw() {
-    this.graphic.setAttribute("x", this.position.x);
-    this.graphic.setAttribute("y", this.position.y);
+    // this.graphic.setAttribute("x", this.position.x);
+    // this.graphic.setAttribute("y", this.position.y);
+
+    this.graphic.setAttribute("transform", `translate(${this.position.x} ${this.position.y})`);
   }
 
   blowUp() {

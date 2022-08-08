@@ -31,7 +31,7 @@
                             <circle cx="0" cy="0" r="3"></circle>
                         </g>
 
-                        <g id="rock" stroke="none" stroke-width="3" fill="white" fill-opacity=".2">
+                        <g id="rock" stroke="white" stroke-width="3" fill="none" stroke-opacity=".2">
                             <circle cx="0" cy="0" r="50"></circle>
                         </g>
 
@@ -107,7 +107,7 @@
     const rocketHolder = document.querySelector("#rocketHolder");
     let rocket = null;
     let meteors = [];
-    let numMeteors = 10;
+    let numMeteors = 5;
     let torpedos = [];
     let numTorpedos = 10;
     let rubble = [];
@@ -165,18 +165,18 @@
     function keydownhandler(e) {
         const keyCode = e.keyCode
         let key = e.key.toUpperCase();
-        if(keyCode == 37) key =     "A";
-        if(keyCode == 39) key = "D";
-        if(keyCode == 38) key = "S";
-        if(keyCode == 40) key = "S";
+        if (keyCode == 37) key = "A";
+        if (keyCode == 39) key = "D";
+        if (keyCode == 38) key = "S";
+        if (keyCode == 40) key = "S";
 
         switch (key) {
             case "A":
-                rocket.spin(-2);
+                rocket.spin(-4);
                 break;
 
             case "D":
-                rocket.spin(2);
+                rocket.spin(4);
                 break;
 
             case "S":
@@ -192,8 +192,8 @@
     function keyuphandler(e) {
         const keyCode = e.keyCode
         let key = e.key.toUpperCase();
-        if(keyCode == 37) key = "A";
-        if(keyCode == 39) key = "D";
+        if (keyCode == 37) key = "A";
+        if (keyCode == 39) key = "D";
 
         switch (key) {
             case "A":
@@ -204,28 +204,30 @@
     }
 
     function fire() {
+        if(rocket.isBlowedUp()) return;
+
         rocket.fire();
         const data = rocket.getFiringData();
         const t = getTorpedo();
-         t.fire(data.x, data.y, data.angle)
+        t.fire(data.x, data.y, data.angle)
 
     }
 
-    function getTorpedo(){
+    function getTorpedo() {
         const found = torpedos.find(element => element.isReady());
         return found
     }
 
-    function collisionDetectionTorpedoMeteors(){
+    function collisionDetectionTorpedoMeteors() {
         const firedTorpedos = torpedos.filter(torpedo => torpedo.isFired() == true);
         const activeMeteors = meteors.filter(meteor => meteor.isBlowedUp() == false);
-        firedTorpedos.forEach((torpedo)=>{
-            activeMeteors.forEach((meteor)=>{
+        firedTorpedos.forEach((torpedo) => {
+            activeMeteors.forEach((meteor) => {
                 const dx = meteor.position.x - torpedo.position.x;
                 const dy = meteor.position.y - torpedo.position.y;
                 const dr = meteor.r + torpedo.r
-                const dist = Math.sqrt(dx*dx + dy*dy);
-                if(dist < dr){
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < dr) {
                     launchRubble(meteor.position)
                     meteor.blowUp();
                     torpedo.blowUp();
@@ -236,24 +238,24 @@
         meteors = activeMeteors;
     }
 
-    function launchRubble(position){
+    function launchRubble(position) {
         const activeRubble = rubble.filter(rock => rock.isAvailable() == true);
         let num = activeRubble.length > 3 ? 3 : activeRubble.length
-        for(let i = 0; i < num; i++){
+        for (let i = 0; i < num; i++) {
             activeRubble[i].fire(position)
         }
     }
 
-    function collisionDetectionTorpedoRubble(){
+    function collisionDetectionTorpedoRubble() {
         const firedTorpedos = torpedos.filter(torpedo => torpedo.isFired() == true);
         const activeRubble = rubble.filter(rock => (rock.isBlowedUp() == false) && (rock.isFired() == true));
-        firedTorpedos.forEach((torpedo)=>{
-            activeRubble.forEach((rock)=>{
+        firedTorpedos.forEach((torpedo) => {
+            activeRubble.forEach((rock) => {
                 const dx = rock.position.x - torpedo.position.x;
                 const dy = rock.position.y - torpedo.position.y;
                 const dr = rock.r + torpedo.r
-                const dist = Math.sqrt(dx*dx + dy*dy);
-                if(dist < dr){
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < dr) {
                     rock.blowUp();
                     torpedo.blowUp();
                 }
@@ -261,7 +263,23 @@
         })
     }
 
-    
+    function collisionDetectionRocksAndShip() {
+        if(rocket.isBlowedUp()) return;
+
+        const activeRubble = rubble.filter(rock => (rock.isBlowedUp() == false) && (rock.isFired() == true));
+        const activeMeteors = meteors.filter(meteor => meteor.isBlowedUp() == false);
+        const allRocks = activeRubble.concat(activeMeteors);
+        allRocks.forEach((rock) => {
+            const dx = rock.position.x - rocket.position.x;
+            const dy = rock.position.y - rocket.position.y;
+            const dr = rock.r + rocket.r
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < dr) {
+                    rock.blowUp();
+                    rocket.blowUp();
+                }
+        })
+    }
 
     function initAnimationFrame() {
         update();
@@ -282,6 +300,7 @@
 
         collisionDetectionTorpedoMeteors();
         collisionDetectionTorpedoRubble();
+        collisionDetectionRocksAndShip();
         window.requestAnimationFrame(update)
     }
 
