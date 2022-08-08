@@ -1,4 +1,4 @@
-class BigRock {
+class LittleRock {
   constructor(x, y, container, defID, svgWidth, svgHeight) {
     const namespace = "http://www.w3.org/2000/svg"
     this.container = container;
@@ -6,7 +6,7 @@ class BigRock {
     this.defID = defID;
     this.w = svgWidth;
     this.h = svgHeight;
-    this.r = 50;
+    this.r = 5;
     this.max = this.w + 2 * this.r;
     this.min = -2 * this.r;
     this.position = {
@@ -15,7 +15,7 @@ class BigRock {
     }
 
     this.directionAngle = Math.random() * 2 * Math.PI;
-    this.speed = defID == "rock" ? .3 + Math.random() * .7 : .6 + Math.random() * 1.5;
+    this.speed = .6 + Math.random() * 1.5;
     this.velocity = {
       x: Math.sin(this.directionAngle) * this.speed,
       y: Math.cos(this.directionAngle) * this.speed
@@ -39,6 +39,7 @@ class BigRock {
       this.position.y = position.y;
     }
     this.fired = true;
+    this.blowedUp = false;
     this.container.appendChild(this.graphic);
   }
 
@@ -46,6 +47,7 @@ class BigRock {
 
   update() {
     if (this.blowedUp) return;
+    if(!this.fired) return;
 
     this.position.x += this.velocity.x;
     if (this.position.x > this.max) {
@@ -80,6 +82,12 @@ class BigRock {
 
   isFired() {
     return this.fired;
+  }
+
+  isAvailable() {
+    if(!this.fired) return true;
+
+    return false;
   }
 
 
