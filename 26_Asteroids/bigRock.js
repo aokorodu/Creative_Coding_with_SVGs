@@ -26,7 +26,7 @@ class BigRock {
   }
 
   init() {
-    const totalPoints = 10 + Math.round(Math.random() * 10);
+    const totalPoints = 8 + Math.round(Math.random() * 8);
     const angleIncrement = (Math.PI * 2) / totalPoints;
     const ptArray = [];
     for (let i = 0; i < totalPoints; i++) {
