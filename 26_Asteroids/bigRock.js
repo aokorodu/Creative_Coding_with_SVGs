@@ -31,7 +31,7 @@ class BigRock {
     const ptArray = [];
     for (let i = 0; i < totalPoints; i++) {
       const currentAngle = i * angleIncrement;
-      const radius = this.r/2 + (Math.random() * 1 * this.r/ 2);
+      const radius = 2 * this.r/3 + (Math.random() * 1 * this.r/ 3);
       const x = Math.cos(currentAngle) * radius;
       const y = Math.sin(currentAngle) * radius;
       ptArray.push(`${x} ${y}`);

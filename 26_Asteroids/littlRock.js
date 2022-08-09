@@ -26,7 +26,7 @@ class LittleRock {
   }
 
   init() {
-    const totalPoints = 5 + Math.round(Math.random() * 5);
+    const totalPoints = 10 + Math.round(Math.random() * 5);
     const angleIncrement = (Math.PI * 2) / totalPoints;
     const ptArray = [];
     for (let i = 0; i < totalPoints; i++) {

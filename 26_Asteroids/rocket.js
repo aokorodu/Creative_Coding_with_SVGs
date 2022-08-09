@@ -2,6 +2,7 @@ class Rocket {
   constructor(x, y, container, svgWidth, svgHeight) {
     this.container = container;
     this.spinner = this.container.querySelector("#rocketSpinner");
+    this.flames = this.container.querySelector("#flames");
     this.w = svgWidth;
     this.h = svgHeight;
     this.spinSpeed = 0;
@@ -24,6 +25,12 @@ class Rocket {
 
     this.angle = 0;
     this.blowedUp = false;
+
+    this.init();
+  }
+
+  init() {
+    this.flames.setAttribute("opacity", 0)
   }
 
   spin(num) {
@@ -35,19 +42,28 @@ class Rocket {
   }
 
   thrust() {
-    console.log('thrust');
     const radians = this.getRadians(this.angle)
-    const yAccel = Math.sin(radians)/5;
-    const xAccel = Math.cos(radians)/5;
-     this.acceleration.x = xAccel;
-     this.acceleration.y = yAccel;
+    const yAccel = Math.sin(radians) / 4;
+    const xAccel = Math.cos(radians) / 4;
+    this.acceleration.x = xAccel;
+    this.acceleration.y = yAccel;
+    this.showFlames(true)
   }
 
-  getRadians(angle){
-    return angle * Math.PI/180
+  stopThrust(){
+    this.showFlames(false);
   }
 
-  getFiringData(){
+  showFlames(bool) {
+    let op = bool ? 1 : 0;
+    this.flames.setAttribute("opacity", op)
+  }
+
+  getRadians(angle) {
+    return angle * Math.PI / 180
+  }
+
+  getFiringData() {
     return {
       x: this.position.x,
       y: this.position.y,
@@ -55,7 +71,7 @@ class Rocket {
     }
   }
 
-  resetAcceleration(){
+  resetAcceleration() {
     this.acceleration = {
       x: 0,
       y: 0
@@ -63,7 +79,7 @@ class Rocket {
   }
 
   update() {
-    if(this.blowedUp) return;
+    if (this.blowedUp) return;
 
     this.angle += this.spinSpeed;
 
@@ -86,7 +102,7 @@ class Rocket {
     this.draw();
     this.resetAcceleration();
 
-    
+
   }
 
   blowUp() {
@@ -94,11 +110,11 @@ class Rocket {
     this.container.remove();
   }
 
-  isBlowedUp(){
+  isBlowedUp() {
     return this.blowedUp;
   }
 
-  draw(){
+  draw() {
     this.container.setAttribute("transform", `translate(${this.position.x} ${this.position.y})`);
     this.spinner.setAttribute("transform", `rotate(${this.angle})`)
   }
