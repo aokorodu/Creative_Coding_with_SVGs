@@ -9,10 +9,26 @@ class LittleRock {
     this.r = 10 + Math.round(Math.random() * 10);
     this.max = this.w + 2 * this.r;
     this.min = -2 * this.r;
-    this.position = {
+    this.startPosition = {
       x: x,
       y: y
     }
+    this.position = {
+      x: 0,
+      y: 0
+    };
+    this.directionAngle = null;
+    this.speed  = null;
+    this.velocity = null;
+    this.blowedUp = false;
+    this.fired = false;
+  }
+
+  reset(){
+    if(this.graphic) this.graphic.remove();
+
+    this.position.x = this.startPosition.x;
+    this.position.y = this.startPosition.y;
 
     this.directionAngle = Math.random() * 2 * Math.PI;
     this.speed = .6 + Math.random() * 1.5;
@@ -26,6 +42,11 @@ class LittleRock {
   }
 
   init() {
+    this.reset();
+    this.build();
+  }
+
+  build(){
     const totalPoints = 10 + Math.round(Math.random() * 5);
     const angleIncrement = (Math.PI * 2) / totalPoints;
     const ptArray = [];
@@ -50,6 +71,7 @@ class LittleRock {
     }
     this.fired = true;
     this.blowedUp = false;
+    this.draw();
     this.container.appendChild(this.graphic);
   }
 

@@ -104,7 +104,7 @@
     function initMeteors() {
         for (let i = 0; i < numMeteors; i++) {
             const coordinates = getRandomPolarCoordinates(400, 500);
-            const meteor = new BigRock(250 + coordinates.x, 250 + coordinates.y, svg, "rock", 500, 500);
+            const meteor = new BigRock(250 + coordinates.x, 250 + coordinates.y, svg, 500, 500);
             meteor.init();
             meteor.fire();
             meteors.push(meteor)
@@ -225,7 +225,7 @@
 
     function launchRubble(position) {
         const activeRubble = rubble.filter(rock => rock.isAvailable() == true);
-        let num = activeRubble.length > 3 ? 3 : activeRubble.length
+        let num = activeRubble.length > 6 ? 6 : activeRubble.length
         for (let i = 0; i < num; i++) {
             activeRubble[i].fire(position)
         }
@@ -262,6 +262,7 @@
             if (dist < dr) {
                 rock.blowUp();
                 rocket.blowUp();
+                reset();
             }
         })
     }
@@ -287,6 +288,21 @@
         collisionDetectionTorpedoRubble();
         collisionDetectionRocksAndShip();
         window.requestAnimationFrame(update)
+    }
+
+    function reset() {
+        console.log('reset')
+        setTimeout(()=>{
+            rocket.reset();
+        }, 2000);
+        meteors.forEach(meteor=>{
+            meteor.reset();
+            meteor.fire();
+        })
+        rubble.forEach(rock=>{
+            rock.reset()
+        })
+        
     }
 
 </script>

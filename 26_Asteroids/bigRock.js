@@ -1,31 +1,49 @@
 class BigRock {
-  constructor(x, y, container, defID, svgWidth, svgHeight) {
+  constructor(x, y, container, svgWidth, svgHeight) {
     const namespace = "http://www.w3.org/2000/svg"
     this.container = container;
     this.graphic = null;
-    this.defID = defID;
     this.w = svgWidth;
     this.h = svgHeight;
     this.r = 50;
     this.max = this.w + 2 * this.r;
     this.min = -2 * this.r;
-    this.position = {
+    this.startPosition = {
       x: x,
       y: y
     }
-
-    this.directionAngle = Math.random() * 2 * Math.PI;
-    this.speed = defID == "rock" ? .3 + Math.random() * .7 : .6 + Math.random() * 1.5;
-    this.velocity = {
-      x: Math.sin(this.directionAngle) * this.speed,
-      y: Math.cos(this.directionAngle) * this.speed
-    }
-
+    this.position = {
+      x: 0,
+      y: 0
+    };
+    this.directionAngle = null;
+    this.speed = null;
+    this.velocity = null;
     this.blowedUp = false;
     this.fired = false;
   }
 
   init() {
+    this.reset();
+    this.build();
+  }
+
+  reset(){
+    this.position.x = this.startPosition.x;
+    this.position.y = this.startPosition.y;
+    this.directionAngle = Math.random() * 2 * Math.PI;
+    this.speed =  .3 + Math.random() * .7;
+    this.velocity = {
+      x: Math.sin(this.directionAngle) * this.speed,
+      y: Math.cos(this.directionAngle) * this.speed
+    }
+    this.blowedUp = false;
+    this.fired = false;
+
+    
+  }
+
+  build(){
     const totalPoints = 8 + Math.round(Math.random() * 8);
     const angleIncrement = (Math.PI * 2) / totalPoints;
     const ptArray = [];
@@ -75,9 +93,6 @@ class BigRock {
   }
 
   draw() {
-    // this.graphic.setAttribute("x", this.position.x);
-    // this.graphic.setAttribute("y", this.position.y);
-
     this.graphic.setAttribute("transform", `translate(${this.position.x} ${this.position.y})`);
   }
 

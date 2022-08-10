@@ -8,10 +8,26 @@ class Rocket {
     this.spinSpeed = 0;
     this.r = 30;
 
-    this.position = {
+    this.startPosition = {
       x: x,
       y: y
     }
+
+    this.position = {
+      x: 0,
+      y: 0
+    };
+    this.velocity = null;
+    this.acceleration = null;
+    this.angle = 0;
+    this.blowedUp = false;
+
+    this.init();
+  }
+
+  reset(){
+    this.position.x = this.startPosition.x;
+    this.position.y = this.startPosition.y;
 
     this.velocity = {
       x: 0,
@@ -25,12 +41,14 @@ class Rocket {
 
     this.angle = 0;
     this.blowedUp = false;
+    this.flames.setAttribute("opacity", 0);
 
-    this.init();
+    this.container.appendChild(this.spinner)
+
   }
 
-  init() {
-    this.flames.setAttribute("opacity", 0)
+  init(){
+    this.reset();
   }
 
   spin(num) {
@@ -107,7 +125,7 @@ class Rocket {
 
   blowUp() {
     this.blowedUp = true;
-    this.container.remove();
+    this.spinner.remove();
   }
 
   isBlowedUp() {
