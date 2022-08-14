@@ -11,6 +11,8 @@
     <script src="bigRock.js"></script>
     <script src="torpedo.js"></script>
     <script src="littlRock.js"></script>
+    <script src="explosion.js"></script>
+    <script src="dust.js"></script>
     <script src="utilities.js"></script>
 </head>
 
@@ -93,13 +95,21 @@
     let numTorpedos = 10;
     let rubble = [];
     let numRubble = 50;
+    let explosion = null;
+    
 
     initRocket();
     initMeteors();
     initRubble();
     initTorpedos();
+    initExplosion();
     initListeners();
     initAnimationFrame();
+
+    function initExplosion() {
+        explosion = new Explosion(0, 0, svg);
+        explosion.init();
+    }
 
     function initMeteors() {
         for (let i = 0; i < numMeteors; i++) {
@@ -216,6 +226,7 @@
                     launchRubble(meteor.position)
                     meteor.blowUp();
                     torpedo.blowUp();
+                    
                 }
             })
         })
@@ -243,6 +254,7 @@
                 if (dist < dr) {
                     rock.blowUp();
                     torpedo.blowUp();
+                    explosion.expload(rock.position)
                 }
             })
         })
@@ -273,14 +285,17 @@
 
     function update() {
         rocket.update();
+        explosion.update();
         meteors.forEach((meteor) => {
             meteor.update();
         })
 
         rubble.forEach((rock) => {
+            
             rock.update();
         })
         torpedos.forEach((torpedo) => {
+            
             torpedo.update();
         })
 
@@ -292,17 +307,17 @@
 
     function reset() {
         console.log('reset')
-        setTimeout(()=>{
+        setTimeout(() => {
             rocket.reset();
         }, 2000);
-        meteors.forEach(meteor=>{
+        meteors.forEach(meteor => {
             meteor.reset();
             meteor.fire();
         })
-        rubble.forEach(rock=>{
+        rubble.forEach(rock => {
             rock.reset()
         })
-        
+
     }
 
 </script>

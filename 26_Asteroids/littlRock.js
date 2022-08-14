@@ -18,14 +18,14 @@ class LittleRock {
       y: 0
     };
     this.directionAngle = null;
-    this.speed  = null;
+    this.speed = null;
     this.velocity = null;
     this.blowedUp = false;
     this.fired = false;
   }
 
-  reset(){
-    if(this.graphic) this.graphic.remove();
+  reset() {
+    if (this.graphic) this.graphic.remove();
 
     this.position.x = this.startPosition.x;
     this.position.y = this.startPosition.y;
@@ -46,13 +46,13 @@ class LittleRock {
     this.build();
   }
 
-  build(){
+  build() {
     const totalPoints = 10 + Math.round(Math.random() * 5);
     const angleIncrement = (Math.PI * 2) / totalPoints;
     const ptArray = [];
     for (let i = 0; i < totalPoints; i++) {
       const currentAngle = i * angleIncrement;
-      const radius = this.r/2 + (Math.random() * 1 * this.r/ 2);
+      const radius = this.r / 2 + (Math.random() * 1 * this.r / 2);
       const x = Math.cos(currentAngle) * radius;
       const y = Math.sin(currentAngle) * radius;
       ptArray.push(`${x} ${y}`);
@@ -79,8 +79,8 @@ class LittleRock {
 
   update() {
     if (this.blowedUp) return;
-    if(!this.fired) return;
-
+    if (!this.fired) return;
+    console.log('rock update')
     this.position.x += this.velocity.x;
     if (this.position.x > this.max) {
       this.position.x = this.min;
@@ -116,7 +116,7 @@ class LittleRock {
   }
 
   isAvailable() {
-    if(!this.fired) return true;
+    if (!this.fired) return true;
 
     return false;
   }
